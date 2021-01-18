@@ -5,3 +5,4 @@ Preview Screen-> Employee details + ID card + Edit/Continue (Data gets stored wh
 Success Screen -> Registration ID, Reg Date + Green Tick + Continue to App Button
 Menu Screen -> Cards (Item Name, Cost, Picture, Button to add to cart, Quantity Pop Up), Flyer for Cart (bottom, Total, Order Button, Clickable to open list of items & quantity)
 Mode of Payment -> Credit Card, Debit Card, UPI, Wallet, Cash
+Test
