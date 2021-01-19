@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:basil_hut/widgets/widget.dart';
+import './signIn.dart';
+import './signUp.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Color(0xffF2994A),
-            Color(0xffF2C94C),
-          ],
-        ),
-      ),
+      decoration: getGradient(),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
@@ -29,7 +23,7 @@ class LoginScreen extends StatelessWidget {
                 height: 40,
                 child: RaisedButton(
                   onPressed: () {
-                    print("Pressed 1");
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => SignIn()));
                   },
                   child: Text(
                     "Sign In",
@@ -48,7 +42,7 @@ class LoginScreen extends StatelessWidget {
                 height: 40,
                 child: RaisedButton(
                   onPressed: () {
-                    print("Pressed 2");
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
                   },
                   child: Text(
                     "Sign Up",
