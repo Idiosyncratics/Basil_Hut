@@ -1,5 +1,5 @@
 Front Page -> Logo, SignUp, SignIn
-SignIn -> Email, Password  (Button to switch to SignUp)
+SignIn -> Email, Password  (Button to switch to SignUp) (Optional: Forgot Password)
 SignUp -> Full Name, Organization Name, Empl ID No, Mobile No, Email, ID Card (png/jpg), Password. (Button to switch to SignIn)
 Preview Screen-> Employee details + ID card + Edit/Continue (Data gets stored when user presses continue here)
 Success Screen -> Registration ID, Reg Date + Green Tick + Continue to App Button
