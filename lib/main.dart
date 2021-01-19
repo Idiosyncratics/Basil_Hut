@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
+import './views/loginScreen.dart';
 
-void main() => runApp(LogInScreen());
+void main() => runApp(Basil_Hut());
 
-class LogInScreen extends StatelessWidget {
+class Basil_Hut extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            Image.asset('images/BasilHutLogo.png'),
-          ],
-        ),
-      ),
-    ));
+      debugShowCheckedModeBanner: false,
+      home: LoginScreen(),
+    );
   }
 }
