@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import './views/loginScreen.dart';
 
-void main() => runApp(Basil_Hut());
+void main() => runApp(BasilHut());
 
-class Basil_Hut extends StatelessWidget {
+class BasilHut extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
