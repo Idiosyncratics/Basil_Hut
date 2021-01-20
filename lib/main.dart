@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './views/loginScreen.dart';
+import './views/homeScreen.dart';
 
 void main() => runApp(BasilHut());
 
@@ -8,7 +8,7 @@ class BasilHut extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: HomeScreen(),
     );
   }
 }

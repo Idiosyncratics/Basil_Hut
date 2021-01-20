@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1039569610432",
+    "project_id": "basilhut-d4408",
+    "storage_bucket": "basilhut-d4408.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039569610432:android:cb83945c68eeb590746f25",
+        "android_client_info": {
+          "package_name": "com.skc.basil_hut"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039569610432-v84go6v3qhbr8i5qb8hqcfbqlbl6vhto.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqtN9V8aKVjlV67MkeLbHuuVVjgV2aQFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1039569610432-v84go6v3qhbr8i5qb8hqcfbqlbl6vhto.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

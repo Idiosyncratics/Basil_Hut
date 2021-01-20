@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 InputDecoration inputTextFieldDecoration(String hint) {
   return InputDecoration(
     hintText: hint,
-    hintStyle: TextStyle(color: Color(0xff264653), fontSize: 19),
+    hintStyle: TextStyle(color: Color(0xff264653), fontSize: 18),
     focusedBorder: UnderlineInputBorder(
       borderSide:
           BorderSide(color: Color(0xff264653), style: BorderStyle.solid),
@@ -15,14 +15,39 @@ InputDecoration inputTextFieldDecoration(String hint) {
 }
 
 TextStyle inputTextFieldStyle() {
-  return TextStyle(color: Color(0xff264653), fontSize: 19);
+  return TextStyle(color: Color(0xff264653), fontSize: 18);
 }
 
-Color getLogoColor(){
+TextStyle userInfoTextStyle() {
+  return TextStyle(color: Color(0xff264653), fontSize: 18, fontWeight: FontWeight.bold);
+}
+
+InputDecoration mobileNumberTextFieldDecoration() {
+  return InputDecoration(
+    isDense: true,
+    prefixIcon: Text(
+      "+91 | ",
+      style: inputTextFieldStyle(),
+    ),
+    prefixIconConstraints: BoxConstraints(minWidth: 0, minHeight: 0),
+    hintText: "Mobile Number",
+    hintStyle: TextStyle(color: Color(0xff264653), fontSize: 19),
+    focusedBorder: UnderlineInputBorder(
+      borderSide:
+          BorderSide(color: Color(0xff264653), style: BorderStyle.solid),
+    ),
+    enabledBorder: UnderlineInputBorder(
+      borderSide: BorderSide(color: Color(0xff264653)),
+    ),
+  );
+}
+
+
+Color getLogoColor() {
   return Color(0xff264653);
 }
 
-BoxDecoration getGradient(){
+BoxDecoration getGradient() {
   return BoxDecoration(
     gradient: LinearGradient(
       begin: Alignment.topCenter,
