@@ -10,6 +10,3 @@ TODO:
 Verify Email
 Forgot Password
 Prompt for 'Please upload a file'
-
-
-Please stop testing Akshat.
