@@ -195,7 +195,9 @@ class _PreviewScreenState extends State<PreviewScreen> {
                           minWidth: 160,
                           height: 40,
                           child: RaisedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              //TODO Firebase Register User
+                            },
                             child: Text(
                               "Submit",
                               style: TextStyle(

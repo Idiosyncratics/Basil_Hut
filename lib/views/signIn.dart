@@ -15,8 +15,7 @@ class _SignInState extends State<SignIn> {
   signInUser() {
     if (formKey.currentState.validate()) {
       print("Correct -> Menu Screen");
-
-      //TODO Authentication (Sign In)
+      //TODO Firebase Sign In
     }
   }
 
