@@ -11,56 +11,59 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
-          child: Center(
-            child: Column(
-              // crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset('images/BasilHutLogo.png'),
-                SizedBox(
-                  height: 45,
-                ),
-                ButtonTheme(
-                  minWidth: 160,
-                  height: 40,
-                  child: RaisedButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => SignIn()));
-                    },
-                    child: Text(
-                      "Sign In",
-                      style: TextStyle(fontSize: 20, color: Color(0xffd8f3dc)),
-                    ),
-                    color: Color(0xff264653),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(7)),
+          child: SingleChildScrollView(
+            padding: EdgeInsets.only(top: 50),
+            child: Center(
+              child: Column(
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset('images/BasilHutLogo.png'),
+                  SizedBox(
+                    height: 45,
                   ),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                ButtonTheme(
-                  minWidth: 160,
-                  height: 40,
-                  child: RaisedButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => SignUp()));
-                    },
-                    child: Text(
-                      "Sign Up",
-                      style: TextStyle(fontSize: 20, color: Color(0xffd8f3dc)),
+                  ButtonTheme(
+                    minWidth: 160,
+                    height: 40,
+                    child: RaisedButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => SignIn()));
+                      },
+                      child: Text(
+                        "Sign In",
+                        style: TextStyle(fontSize: 20, color: Color(0xffd8f3dc)),
+                      ),
+                      color: Color(0xff264653),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(7)),
                     ),
-                    color: Color(0xff264653),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(7)),
                   ),
-                ),
-                SizedBox(
-                  height: 30,
-                )
-              ],
+                  SizedBox(
+                    height: 30,
+                  ),
+                  ButtonTheme(
+                    minWidth: 160,
+                    height: 40,
+                    child: RaisedButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => SignUp()));
+                      },
+                      child: Text(
+                        "Sign Up",
+                        style: TextStyle(fontSize: 20, color: Color(0xffd8f3dc)),
+                      ),
+                      color: Color(0xff264653),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(7)),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  )
+                ],
+              ),
             ),
           ),
         ),
