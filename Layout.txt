@@ -10,3 +10,4 @@ TODO:
 Verify Email
 Forgot Password
 Prompt for 'Please upload a file'
+Change size of icon
