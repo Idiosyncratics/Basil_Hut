@@ -3,11 +3,10 @@ import 'package:basil_hut/widgets/widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:image_picker/image_picker.dart';
 import './signIn.dart';
 import 'dart:io'; //For file IO
 import 'package:permission_handler/permission_handler.dart'; //For permissions (Add in AndroidManifest.xml)
-import 'package:path/path.dart'; //For getting the file name from file path
+import 'package:file_picker/file_picker.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -23,7 +22,6 @@ class _SignUpState extends State<SignUp> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
-  final _imgPicker = ImagePicker();
   String pickedFilePath;
   String fileStatus = "No File Uploaded";
   bool retry = false;
@@ -54,12 +52,12 @@ class _SignUpState extends State<SignUp> {
   }
 
   uploadFile() async {
-    if (await Permission.accessMediaLocation.request().isGranted) {
-      final pickedFile = await _imgPicker.getImage(source: ImageSource.gallery);
-      pickedFilePath = pickedFile.path;
+    if (await Permission.storage.request().isGranted) {
+      final FilePickerResult pickedFile = await FilePicker.platform.pickFiles(type: FileType.custom, allowedExtensions: ['png', 'jpeg', 'jpg']);
+      pickedFilePath = pickedFile.paths.last;
       //TODO Complete Upload Function
       setState(() {
-        File _imageFile = new File(pickedFile.path);
+        // File _imageFile = pickedFile.files.last;
         retry = false;
         fileStatus = "Image Uploaded";
       });
