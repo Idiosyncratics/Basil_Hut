@@ -59,3 +59,17 @@ BoxDecoration getGradient() {
     ),
   );
 }
+
+Text makePreviewField(String field){
+  return Text(
+    field,
+    style: inputTextFieldStyle(),
+  );
+}
+
+Text makePreviewValue(String value){
+  return Text(
+    "   :   "+value,
+    style: userInfoTextStyle(),
+  );
+}

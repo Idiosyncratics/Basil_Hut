@@ -1,9 +1,10 @@
 import 'package:basil_hut/views/signUp.dart';
+import 'package:basil_hut/views/successScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:basil_hut/widgets/widget.dart';
-import 'package:basil_hut/widgets/widget.dart';
 import 'package:basil_hut/views/homeScreen.dart';
+import 'dart:io';
 
 class PreviewScreen extends StatefulWidget {
   String fullName, orgName, eId, email, password;
@@ -25,6 +26,7 @@ class PreviewScreen extends StatefulWidget {
 
 class _PreviewScreenState extends State<PreviewScreen> {
 
+  //For back button functionality
   Future<bool> _onWillPop() async {
     return (await showDialog(
           context: context,
@@ -38,8 +40,10 @@ class _PreviewScreenState extends State<PreviewScreen> {
               ),
               new FlatButton(
                 onPressed: () {
-                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => HomeScreen()),
-                          (Route<dynamic> route) => false);
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                      (Route<dynamic> route) => false);
                 },
                 child: new Text('Yes'),
               ),
@@ -47,6 +51,12 @@ class _PreviewScreenState extends State<PreviewScreen> {
           ),
         )) ??
         false;
+  }
+
+  //For registering user
+  registerUser(){
+    //TODO Firebase Register User
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => SuccessScreen("abc")));
   }
 
   @override
@@ -89,79 +99,48 @@ class _PreviewScreenState extends State<PreviewScreen> {
                       children: [
                         Row(
                           children: [
-                            Text(
-                              "Full Name: ",
-                              style: inputTextFieldStyle(),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                makePreviewField("Full Name"),
+                                SizedBox(height: 20),
+                                makePreviewField("Org Name"),
+                                SizedBox(height: 20),
+                                makePreviewField("Emp ID"),
+                                SizedBox(height: 20),
+                                makePreviewField("Email"),
+                                SizedBox(height: 20),
+                                makePreviewField("Mob No"),
+                                SizedBox(height: 20),
+                                makePreviewField("ID Card"),
+                                SizedBox(height: 20),
+                              ],
                             ),
-                            Text(
-                              "${widget.fullName}",
-                              style: userInfoTextStyle(),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                makePreviewValue(widget.fullName),
+                                SizedBox(height: 20),
+                                makePreviewValue(widget.orgName),
+                                SizedBox(height: 20),
+                                makePreviewValue(widget.eId),
+                                SizedBox(height: 20),
+                                makePreviewValue(widget.email),
+                                SizedBox(height: 20),
+                                makePreviewValue(widget.mobNo.toString()),
+                                SizedBox(height: 20),
+                                makePreviewValue(""),
+                                SizedBox(height: 20),
+                              ],
                             )
                           ],
                         ),
-                        SizedBox(height: 15),
-                        Row(
-                          children: [
-                            Text(
-                              "Org Name: ",
-                              style: inputTextFieldStyle(),
-                            ),
-                            Text(
-                              "${widget.orgName}",
-                              style: userInfoTextStyle(),
-                            )
-                          ],
-                        ),
-                        SizedBox(height: 15),
-                        Row(
-                          children: [
-                            Text(
-                              "Emp ID: ",
-                              style: inputTextFieldStyle(),
-                            ),
-                            Text(
-                              "${widget.eId}",
-                              style: userInfoTextStyle(),
-                            )
-                          ],
-                        ),
-                        SizedBox(height: 15),
-                        Row(
-                          children: [
-                            Text(
-                              "Email: ",
-                              style: inputTextFieldStyle(),
-                            ),
-                            Text(
-                              "${widget.email}",
-                              style: userInfoTextStyle(),
-                            )
-                          ],
-                        ),
-                        SizedBox(height: 15),
-                        Row(
-                          children: [
-                            Text(
-                              "Mob No: ",
-                              style: inputTextFieldStyle(),
-                            ),
-                            Text(
-                              "+91 ${widget.mobNo}",
-                              style: userInfoTextStyle(),
-                            )
-                          ],
-                        ),
-                        SizedBox(height: 15),
-                        Text(
-                          "ID Card: ",
-                          style: inputTextFieldStyle(),
-                        ),
-                        SizedBox(height: 15),
                         Container(
                           alignment: Alignment.center,
                           height: 200,
                           child: ClipRRect(
-                              child: Image.asset(widget.idCard),
+                              child: Image.file(File(widget.idCard)),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20))),
                         ),
@@ -196,7 +175,7 @@ class _PreviewScreenState extends State<PreviewScreen> {
                           height: 40,
                           child: RaisedButton(
                             onPressed: () {
-                              //TODO Firebase Register User
+                              registerUser();
                             },
                             child: Text(
                               "Submit",

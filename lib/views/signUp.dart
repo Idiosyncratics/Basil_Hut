@@ -15,7 +15,6 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-
   final formKey = GlobalKey<FormState>();
   TextEditingController fullNameController = TextEditingController();
   TextEditingController orgNameController = TextEditingController();
@@ -37,11 +36,11 @@ class _SignUpState extends State<SignUp> {
         context,
         MaterialPageRoute(
           builder: (context) => PreviewScreen(
-            fullName: fullNameController.text,
-            orgName: orgNameController.text,
-            eId: empIdController.text,
+            fullName: fullNameController.text.trimRight().toUpperCase(),
+            orgName: orgNameController.text.trimRight().toUpperCase(),
+            eId: empIdController.text.trimRight(),
             mobNo: int.parse(mobNoController.text),
-            email: emailController.text,
+            email: emailController.text.trimRight(),
             password: passwordController.text,
             idCard: pickedFilePath,
           ),
@@ -57,7 +56,7 @@ class _SignUpState extends State<SignUp> {
   uploadFile() async {
     if (await Permission.accessMediaLocation.request().isGranted) {
       final pickedFile = await _imgPicker.getImage(source: ImageSource.gallery);
-      pickedFilePath=pickedFile.path;
+      pickedFilePath = pickedFile.path;
       //TODO Complete Upload Function
       setState(() {
         File _imageFile = new File(pickedFile.path);
@@ -111,10 +110,8 @@ class _SignUpState extends State<SignUp> {
                         children: [
                           //Full Name
                           TextFormField(
-                              autovalidateMode:
-                                  AutovalidateMode.onUserInteraction,
                               validator: (val) {
-                                return val.isNotEmpty
+                                return (val.isNotEmpty && RegExp(r"^[A-Za-z]{1,}[\s]{0,1}[A-Za-z\s]{0,}$").hasMatch(val))
                                     ? null
                                     : "Please enter your name";
                               },
@@ -127,10 +124,9 @@ class _SignUpState extends State<SignUp> {
 
                           //Organization Name
                           TextFormField(
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
+                            autovalidateMode: AutovalidateMode.onUserInteraction,
                             validator: (val) {
-                              return val.isNotEmpty
+                              return (val.isNotEmpty)
                                   ? null
                                   : "Please enter an organization name";
                             },
@@ -162,20 +158,20 @@ class _SignUpState extends State<SignUp> {
 
                           //Mobile No
                           TextFormField(
-                              autovalidateMode:
-                                  AutovalidateMode.onUserInteraction,
-                              controller: mobNoController,
-                              validator: (val) {
-                                return (val.isNotEmpty &&
-                                        RegExp("[0-9]{10,}")
-                                            .hasMatch(val.toString()))
-                                    ? null
-                                    : "Please enter a valid number";
-                              },
-                              decoration: mobileNumberTextFieldDecoration(),
-                              style: inputTextFieldStyle()),
+                            controller: mobNoController,
+                            validator: (val) {
+                              return (val.isNotEmpty &&
+                                      RegExp("[0-9]{10}")
+                                          .hasMatch(val.toString()))
+                                  ? null
+                                  : "Please enter a valid number";
+                            },
+                            decoration: mobileNumberTextFieldDecoration(),
+                            style: inputTextFieldStyle(),
+                            maxLength: 10,
+                          ),
                           SizedBox(
-                            height: 30,
+                            height: 3,
                           ),
 
                           //Email
@@ -338,6 +334,4 @@ class _SignUpState extends State<SignUp> {
       ),
     );
   }
-
-
 }
