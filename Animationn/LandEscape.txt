@@ -1,0 +1,8 @@
+Getting the screen orientation:
+	MediaQuery.of(context).orientation
+
+Comparing orientation programmatically
+	MediaQuery.of(context).orientation == Orientation.portrait
+
+
+https://flutter.dev/docs/cookbook/design/orientation
