@@ -9,8 +9,8 @@ Choco Smoothie	250
 Dragon Smoothie	250
 Mixed smoothie	250
 
-Strawberry sparkling tea 250
-Raspberry sparkling tree 250
+Strawberry sparkling tea	 250
+Raspberry sparkling tea	 250
 
 Cafe Latte 	200
 Cappuccino	220
