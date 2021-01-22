@@ -1,0 +1,14 @@
+oven roasted tomato soup 	150
+oven roasted basil soup	150
+thyme Mushroom soup	150
+sweet corn soup		170
+lemon coriander soup	150
+manchow			150
+tom kha *		170
+Tom yum goong *		300
+Cuccumber spinach soup	150
+Roasted Pumpkin soup	150
+Creamy broccoli soup	170
+Coconut Mushroom soup	170
+Fried Tofu soup		200 
+Squash Tofu soup		200

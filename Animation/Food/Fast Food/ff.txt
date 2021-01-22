@@ -1,0 +1,13 @@
+Samosa		150
+Raj Kachori 	200
+Burger 		180
+Pizza		200
+Taco		150
+Donuts		150
+French Fries	150
+whoopers		250
+Coke		150
+Diet Coke		180
+ice cream		150
+popcorn		150
+hot dog *		220
