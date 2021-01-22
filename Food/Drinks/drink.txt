@@ -1,0 +1,42 @@
+Orange juice	150
+Watermelon juice	150
+Pineapple juice	150
+Passion fruit Juice	150
+
+Banana Smoothie	250
+Passion Smoothie	250
+Choco Smoothie	250
+Dragon Smoothie	250
+Mixed smoothie	250
+
+Strawberry sparkling tea	 250
+Raspberry sparkling tea	 250
+
+Cafe Latte 	200
+Cappuccino	220
+Mochaccino	220
+Caramel Hazelnut   280
+
+Mocha Frappe	250
+Coffee Frappe	250
+Vanilla Frappe	250
+
+NON ALCHOHOLIC-----
+Royal crown passion soda     300
+Virgin mojito Soda		300
+Monkey Tail		300
+Fruit Punch		300
+Shirley Temple		300
+
+Martini----- 		350
+White martini		
+khmer Martini
+Blue Lagoon
+Cosmopolitan
+Lemon drop
+kiss & tell
+Lemon meringue
+Basil trance
+
+
+

@@ -73,3 +73,15 @@ Text makePreviewValue(String value) {
     style: userInfoTextStyle(),
   );
 }
+
+Container showLoadingScreen() {
+  return Container(
+    decoration: getGradient(),
+    child: Scaffold(
+      backgroundColor: Colors.transparent,
+      body: SafeArea(
+        child: Center(child: CircularProgressIndicator()),
+      ),
+    ),
+  );
+}

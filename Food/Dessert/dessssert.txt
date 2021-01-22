@@ -1,0 +1,22 @@
+Waffles			220
+pancake			200
+Dark Choco Sandwich	150
+Gulab Jamun		200
+Mango Kulfi		150
+kesar kheer		200			
+sizzling Brownie		180
+Hot Choco Mousse		200
+Choco Spark puddle	200
+Key lime pie		200
+NY CheeseCake 		250
+Apple pie 		220
+Mixed berries cake		200
+Molten Lava raspberry	250
+Dutch truffle		200
+Red Velvet Cup Cake	180
+Marshmellow Cup Cake	180
+KitKat Crunch 		180
+tiramisu			180
+BullsEye			200
+Lemon Tart		200
+kahlua Mousse		200
