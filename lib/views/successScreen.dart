@@ -1,3 +1,4 @@
+import 'package:basil_hut/widgets/widget.dart';
 import 'package:flutter/material.dart';
 
 class SuccessScreen extends StatelessWidget {
@@ -8,9 +9,10 @@ class SuccessScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: getGradient(),
       child: SafeArea(
         child: Scaffold(
-          body: Text(regID)
+          body: Center(child: Text(regID))
         ),
       ),
     );

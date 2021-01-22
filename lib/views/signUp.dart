@@ -14,6 +14,7 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+
   final formKey = GlobalKey<FormState>();
   TextEditingController fullNameController = TextEditingController();
   TextEditingController orgNameController = TextEditingController();
@@ -28,19 +29,20 @@ class _SignUpState extends State<SignUp> {
 
   registerUser(BuildContext context) {
     if (formKey.currentState.validate() && fileStatus == "Image Uploaded") {
+      String password=passwordController.text;
       passwordController.text = "";
       confirmPasswordController.text = "";
       Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) => PreviewScreen(
-            fullName: fullNameController.text.trimRight().toUpperCase(),
-            orgName: orgNameController.text.trimRight().toUpperCase(),
-            eId: empIdController.text.trimRight(),
-            mobNo: int.parse(mobNoController.text),
-            email: emailController.text.trimRight(),
-            password: passwordController.text,
-            idCard: pickedFilePath,
+            fullNameController.text.trimRight().toUpperCase(),
+            orgNameController.text.trimRight().toUpperCase(),
+            empIdController.text.trimRight(),
+            emailController.text.trimRight(),
+            password,
+            mobNoController.text,
+            pickedFilePath,
           ),
         ),
       );
@@ -108,6 +110,7 @@ class _SignUpState extends State<SignUp> {
                         children: [
                           //Full Name
                           TextFormField(
+                            autovalidateMode: AutovalidateMode.onUserInteraction,
                               validator: (val) {
                                 return (val.isNotEmpty && RegExp(r"^[A-Za-z]{1,}[\s]{0,1}[A-Za-z\s]{0,}$").hasMatch(val))
                                     ? null
