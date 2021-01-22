@@ -1,6 +1,7 @@
 import 'package:basil_hut/backend/auth.dart';
 import 'package:basil_hut/widgets/widget.dart';
 import 'package:flutter/material.dart';
+import 'package:basil_hut/views/menuScreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import './signUp.dart';
 
@@ -21,11 +22,16 @@ class _SignInState extends State<SignIn> {
       setState(() {
         isLoading = true;
       });
-      final String result = await auth.signInWithEmailAndPassword(
-          emailController.text, passwordController.text);
+      await auth.signInWithEmailAndPassword(
+          emailController.text, passwordController.text).then((res){
+            if(res!=null){
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MenuScreen()));
+            }
+      });
       //TODO Display SnackBar & Error
       //Signed In
       //TODO Redirect to Menu Screen (pushReplacement)
+
 
       setState(() {
         isLoading = false;

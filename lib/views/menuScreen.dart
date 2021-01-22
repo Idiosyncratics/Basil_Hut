@@ -86,7 +86,7 @@ class _MenuScreenState extends State<MenuScreen> {
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
               child: Column(
                 children: [
-                  Container(
+                  Container( //white container
                     height: 140,
                     width: double.infinity,
                     padding: EdgeInsets.all(0),
@@ -117,6 +117,7 @@ class _MenuScreenState extends State<MenuScreen> {
                           ),
                         ),
                         Container(
+                          width: 140,
                           height: double.infinity,
                           padding: EdgeInsets.symmetric(vertical: 10),
                           margin: EdgeInsets.symmetric(horizontal: 20),
@@ -142,22 +143,40 @@ class _MenuScreenState extends State<MenuScreen> {
                             ],
                           ),
                         ),
-                        Container(
-                          height: double.infinity,
-                          padding: EdgeInsets.symmetric(vertical: 10),
-                          color: Colors.teal,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Icon(
-                                Icons.add,
-                                size: 30,
+                        Expanded(
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.only(topRight: Radius.circular(20), bottomRight: Radius.circular(20)),
+                            child: Container(
+                              alignment: Alignment.centerRight,
+                              height: double.infinity,
+                              padding: EdgeInsets.only(top: 10, bottom: 10, right: 15),
+                              // color: Colors.teal,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey[300],
+                                      borderRadius: BorderRadius.all(Radius.circular(10))
+                                    ),
+                                    child: Icon(
+                                      Icons.add,
+                                      size: 30,
+                                    ),
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey[300],
+                                        borderRadius: BorderRadius.all(Radius.circular(10))
+                                    ),
+                                    child: Icon(
+                                      Icons.remove,
+                                      size: 30,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              Icon(
-                                Icons.add,
-                                size: 30,
-                              ),
-                            ],
+                            ),
                           ),
                         ),
                       ],
