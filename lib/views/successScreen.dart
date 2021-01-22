@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:basil_hut/widgets/widget.dart';
+import 'menuScreen.dart';
 
 class SuccessScreen extends StatelessWidget {
   String regID;
@@ -66,7 +67,10 @@ class SuccessScreen extends StatelessWidget {
                     minWidth: 160,
                     height: 40,
                     child: RaisedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (context) => MenuScreen()));
+                      },
                       child: Text(
                         "Let's Go!",
                         style:

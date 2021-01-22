@@ -19,7 +19,8 @@ TextStyle inputTextFieldStyle() {
 }
 
 TextStyle userInfoTextStyle() {
-  return TextStyle(color: Color(0xff264653), fontSize: 18, fontWeight: FontWeight.bold);
+  return TextStyle(
+      color: Color(0xff264653), fontSize: 18, fontWeight: FontWeight.bold);
 }
 
 InputDecoration mobileNumberTextFieldDecoration() {
@@ -42,7 +43,6 @@ InputDecoration mobileNumberTextFieldDecoration() {
   );
 }
 
-
 Color getLogoColor() {
   return Color(0xff264653);
 }
@@ -60,16 +60,16 @@ BoxDecoration getGradient() {
   );
 }
 
-Text makePreviewField(String field){
+Text makePreviewField(String field) {
   return Text(
     field,
     style: inputTextFieldStyle(),
   );
 }
 
-Text makePreviewValue(String value){
+Text makePreviewValue(String value) {
   return Text(
-    "   :   "+value,
+    "   :   " + value,
     style: userInfoTextStyle(),
   );
 }
