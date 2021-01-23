@@ -45,7 +45,7 @@ class _PreviewScreenState extends State<PreviewScreen> {
           .addNewUserData(widget.fullName, widget.orgName, widget.eId,
               widget.email, widget.mobNo, widget.idCard)
           .then((newBHUser) async {
-        String id = newBHUser.currUserCustomID;
+        String id = newBHUser.currUserRegID;
         Navigator.of(context).push(//TODO Change to pushReplacement
             MaterialPageRoute(builder: (context) => SuccessScreen(id)));
         setState(() {

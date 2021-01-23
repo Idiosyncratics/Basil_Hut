@@ -1,6 +1,6 @@
 class BHUser{
   String currUserEmail;
-  String currUserCustomID;
+  String currUserRegID;
 
-  BHUser(this.currUserEmail, this.currUserCustomID);
+  BHUser(this.currUserEmail, this.currUserRegID);
 }

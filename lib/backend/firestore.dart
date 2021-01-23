@@ -16,7 +16,7 @@ class FirestoreMethods {
     BHUser newBHUser;
     User currFirebaseUser = FirebaseAuth.instance.currentUser;
     await usersCollection.doc(email).set({
-      "Custom ID": "",
+      "Reg ID": "",
       "Email": currFirebaseUser.email,
       "Employee ID": eId,
       "Full Name": fullName,
@@ -32,7 +32,7 @@ class FirestoreMethods {
         dynamic length = snapshot.get('Count');
         usersCollection
             .doc(email)
-            .update({'Custom ID': "BH_User_" + (length + 1).toString()});
+            .update({'Reg ID': "BH_User_" + (length + 1).toString()});
         usersCollection.doc('UserCount').update({'Count': (length + 1)});
         newBHUser = new BHUser(email, "BH_User_" + (length + 1).toString());
       }).then((value) async {
