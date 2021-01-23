@@ -45,9 +45,8 @@ class _PreviewScreenState extends State<PreviewScreen> {
           .addNewUserData(widget.fullName, widget.orgName, widget.eId,
               widget.email, widget.mobNo, widget.idCard)
           .then((newBHUser) async {
-        String id = newBHUser.currUserRegID;
         Navigator.of(context).push(//TODO Change to pushReplacement
-            MaterialPageRoute(builder: (context) => SuccessScreen(id)));
+            MaterialPageRoute(builder: (context) => SuccessScreen(newBHUser.currUserRegID)));
         setState(() {
           isLoading = false;
         });
@@ -60,8 +59,8 @@ class _PreviewScreenState extends State<PreviewScreen> {
     return (await showDialog(
           context: context,
           builder: (context) => new AlertDialog(
-            title: new Text('Return to home screen?'),
-            content: new Text('Form data will be lost.'),
+            title: new Text('Return to home screen?', style: userInfoTextStyle()),
+            content: new Text('Form data will be lost.', style: inputTextFieldStyle()),
             actions: <Widget>[
               new FlatButton(
                 onPressed: () => Navigator.of(context).pop(false),
@@ -105,10 +104,7 @@ class _PreviewScreenState extends State<PreviewScreen> {
                           child: Center(
                             child: Text(
                               "A Quick Check",
-                              style: TextStyle(
-                                  fontSize: 26,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xff153745)),
+                              style: pageHeadingTextFieldStyle(),
                             ),
                           ),
                         ),
@@ -116,7 +112,7 @@ class _PreviewScreenState extends State<PreviewScreen> {
                           decoration: BoxDecoration(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20)),
-                              color: Colors.white),
+                              color: Colors.grey[100]),
                           padding: EdgeInsets.all(25),
                           width: MediaQuery.of(context).size.width - 40,
                           alignment: Alignment.centerLeft,
@@ -194,8 +190,7 @@ class _PreviewScreenState extends State<PreviewScreen> {
                                   },
                                   child: Text(
                                     "Edit",
-                                    style: TextStyle(
-                                        fontSize: 20, color: Color(0xffd8f3dc)),
+                                    style: buttonTextStyle(),
                                   ),
                                   color: getLogoColor(),
                                   shape: RoundedRectangleBorder(
@@ -211,8 +206,7 @@ class _PreviewScreenState extends State<PreviewScreen> {
                                   },
                                   child: Text(
                                     "Submit",
-                                    style: TextStyle(
-                                        fontSize: 20, color: Color(0xffd8f3dc)),
+                                    style: buttonTextStyle(),
                                   ),
                                   color: getLogoColor(),
                                   shape: RoundedRectangleBorder(

@@ -94,10 +94,7 @@ class _SignUpState extends State<SignUp> {
                   child: Center(
                     child: Text(
                       "Sign Up",
-                      style: TextStyle(
-                          fontSize: 26,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xff153745)),
+                      style: pageHeadingTextFieldStyle(),
                     ),
                   ),
                 ),
@@ -250,7 +247,7 @@ class _SignUpState extends State<SignUp> {
                                 child: Text(
                                   "Choose a File",
                                   style: TextStyle(
-                                      fontSize: 16, color: getLogoColor()),
+                                      fontSize: 16, color: getLogoColor(), fontFamily: "Poppins"),
                                 ),
                               ),
                               Row(
@@ -259,7 +256,8 @@ class _SignUpState extends State<SignUp> {
                                     fileStatus + "  ",
                                     style: TextStyle(
                                         fontSize: 16,
-                                        color: getFileTextColor()),
+                                        color: getFileTextColor(),
+                                    fontFamily: "Poppins"),
                                   ),
                                   Visibility(
                                     visible: fileStatus == "Image Uploaded",
@@ -287,8 +285,7 @@ class _SignUpState extends State<SignUp> {
                               },
                               child: Text(
                                 "Next",
-                                style: TextStyle(
-                                    fontSize: 20, color: Color(0xffd8f3dc)),
+                                style: buttonTextStyle(),
                               ),
                               color: getLogoColor(),
                               shape: RoundedRectangleBorder(
@@ -305,7 +302,7 @@ class _SignUpState extends State<SignUp> {
                                 Text(
                                   "Already have an account? ",
                                   style: TextStyle(
-                                      color: getLogoColor(), fontSize: 16),
+                                      color: getLogoColor(), fontSize: 16, fontFamily: "Poppins"),
                                 ),
                                 GestureDetector(
                                   onTap: () {
@@ -319,6 +316,7 @@ class _SignUpState extends State<SignUp> {
                                     style: TextStyle(
                                         color: getLogoColor(),
                                         fontSize: 17,
+                                        fontFamily: "Poppins",
                                         fontWeight: FontWeight.bold),
                                   ),
                                 )

@@ -1,4 +1,5 @@
 import 'package:basil_hut/backend/auth.dart';
+import 'package:basil_hut/backend/bhUser.dart';
 import 'package:basil_hut/widgets/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:basil_hut/views/menuScreen.dart';
@@ -60,10 +61,7 @@ class _SignInState extends State<SignIn> {
                         child: Center(
                           child: Text(
                             "Sign In",
-                            style: TextStyle(
-                                fontSize: 26,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xff153745)),
+                            style: pageHeadingTextFieldStyle(),
                           ),
                         ),
                       ),
@@ -115,6 +113,7 @@ class _SignInState extends State<SignIn> {
                                       style: TextStyle(
                                           color: getLogoColor(),
                                           fontSize: 17,
+                                          fontFamily: "Poppins",
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
@@ -133,9 +132,7 @@ class _SignInState extends State<SignIn> {
                                     },
                                     child: Text(
                                       "Sign In",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          color: Color(0xffd8f3dc)),
+                                      style: buttonTextStyle(),
                                     ),
                                     color: getLogoColor(),
                                     shape: RoundedRectangleBorder(
@@ -153,7 +150,8 @@ class _SignInState extends State<SignIn> {
                                         "New to Basil Hut? ",
                                         style: TextStyle(
                                             color: getLogoColor(),
-                                            fontSize: 16),
+                                            fontSize: 16,
+                                        fontFamily: "Poppins"),
                                       ),
                                       GestureDetector(
                                         onTap: () {
@@ -168,6 +166,7 @@ class _SignInState extends State<SignIn> {
                                           style: TextStyle(
                                               color: getLogoColor(),
                                               fontSize: 17,
+                                              fontFamily: "Poppins",
                                               fontWeight: FontWeight.bold),
                                         ),
                                       )

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 InputDecoration inputTextFieldDecoration(String hint) {
   return InputDecoration(
     hintText: hint,
-    hintStyle: TextStyle(color: Color(0xff264653), fontSize: 18),
+    hintStyle: TextStyle(color: Color(0xff264653), fontSize: 18, fontFamily: "Poppins"),
     focusedBorder: UnderlineInputBorder(
       borderSide:
           BorderSide(color: Color(0xff264653), style: BorderStyle.solid),
@@ -15,12 +15,29 @@ InputDecoration inputTextFieldDecoration(String hint) {
 }
 
 TextStyle inputTextFieldStyle() {
-  return TextStyle(color: Color(0xff264653), fontSize: 18);
+  return TextStyle(color: Color(0xff264653), fontSize: 18,
+      fontFamily: "Poppins", fontWeight: FontWeight.w200);
+}
+
+TextStyle pageHeadingTextFieldStyle(){
+  return TextStyle(
+      fontFamily: "Poppins",
+      fontSize: 26,
+      fontWeight: FontWeight.w700,
+      color: Color(0xff153745));
 }
 
 TextStyle userInfoTextStyle() {
   return TextStyle(
-      color: Color(0xff264653), fontSize: 18, fontWeight: FontWeight.bold);
+      color: Color(0xff264653), fontSize: 18, fontWeight: FontWeight.bold, fontFamily: "Poppins");
+}
+
+TextStyle buttonTextStyle(){
+  return TextStyle(
+      fontSize: 20,
+      color: Color(0xffd8f3dc),
+      fontFamily: "Poppins",
+  fontWeight: FontWeight.w700);
 }
 
 InputDecoration mobileNumberTextFieldDecoration() {
@@ -52,7 +69,7 @@ BoxDecoration getGradient() {
     gradient: LinearGradient(
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
-      colors: [
+      colors: [ //Sunkist
         Color(0xffF2994A),
         Color(0xffF2C94C),
       ],

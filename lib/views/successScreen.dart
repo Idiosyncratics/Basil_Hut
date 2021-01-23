@@ -1,3 +1,4 @@
+import 'package:basil_hut/backend/bhUser.dart';
 import 'package:basil_hut/widgets/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:basil_hut/widgets/widget.dart';
@@ -29,10 +30,10 @@ class SuccessScreen extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(20)),
-                      color: Colors.white,
+                      color: Colors.grey[100],
                     ),
                     padding: EdgeInsets.all(25),
-                    margin: EdgeInsets.only(bottom: 70),
+                    margin: EdgeInsets.only(bottom: 50),
                     width: MediaQuery.of(context).size.width - 40,
                     child: Column(
                       children: [
@@ -75,7 +76,7 @@ class SuccessScreen extends StatelessWidget {
                       child: Text(
                         "Let's Go!",
                         style:
-                            TextStyle(fontSize: 20, color: Color(0xffd8f3dc)),
+                            buttonTextStyle(),
                       ),
                       color: getLogoColor(),
                       shape: RoundedRectangleBorder(

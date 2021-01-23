@@ -44,6 +44,20 @@ flutter:
 
   assets:
     - images/
+    - Food/Appetizers/
+    - Food/Dessert/
+    - Food/Drinks/
+    - Food/FastFood/
+    - Food/Meal/
+    - Food/Soup/
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: fonts/Poppins-Bold.ttf
+        - asset: fonts/Poppins-Medium.ttf
+        - asset: fonts/Poppins-Regular.ttf
+        - asset: fonts/Poppins-SemiBold.ttf
+        - asset: fonts/Poppins-ExtraBold.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

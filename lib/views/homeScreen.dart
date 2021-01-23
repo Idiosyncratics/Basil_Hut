@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Text(
                         "Sign In",
                         style:
-                            TextStyle(fontSize: 20, color: Color(0xffd8f3dc)),
+                            buttonTextStyle(),
                       ),
                       color: Color(0xff264653),
                       shape: RoundedRectangleBorder(
@@ -75,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Text(
                         "Sign Up",
                         style:
-                            TextStyle(fontSize: 20, color: Color(0xffd8f3dc)),
+                            buttonTextStyle(),
                       ),
                       color: Color(0xff264653),
                       shape: RoundedRectangleBorder(
@@ -102,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Text(
                         "Log Out (Temp)",
                         style:
-                            TextStyle(fontSize: 20, color: Color(0xffd8f3dc)),
+                            buttonTextStyle(),
                       ),
                       color: Color(0xff264653),
                       shape: RoundedRectangleBorder(

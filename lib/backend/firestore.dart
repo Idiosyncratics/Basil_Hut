@@ -36,11 +36,12 @@ class FirestoreMethods {
         usersCollection.doc('UserCount').update({'Count': (length + 1)});
         newBHUser = new BHUser(email, "BH_User_" + (length + 1).toString());
       }).then((value) async {
-        await uploadFile(idURL, email).then((value) =>
-            print("Document created, Count updated & ID uploaded - addNewUserData() completed"));
+        await uploadFile(idURL, email).then((value) => print(
+            "Document created, Count updated & ID uploaded - addNewUserData() completed"));
       });
-    }).catchError((error) => print("addNewUserData() failed with error: $error"));
-    if(newBHUser!=null){
+    }).catchError(
+        (error) => print("addNewUserData() failed with error: $error"));
+    if (newBHUser != null) {
       return newBHUser;
     }
   }
@@ -58,4 +59,7 @@ class FirestoreMethods {
     }
   }
 
+  String getBHUserDetails() {
+    return FirebaseAuth.instance.currentUser.email;
+  }
 }
