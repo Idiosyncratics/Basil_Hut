@@ -85,30 +85,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(
                     height: 30,
                   ),
-                  ButtonTheme(
-                    minWidth: 160,
-                    height: 40,
-                    child: RaisedButton(
-                      onPressed: () {
-                        if (FirebaseAuth.instance.currentUser != null) {
-                          setState(() {
-                            signedIn = true;
-                            signOut();
-                          });
-                        } else {
-                          print("No user signed in");
-                        }
-                      },
-                      child: Text(
-                        "Log Out (Temp)",
-                        style:
-                            buttonTextStyle(),
-                      ),
-                      color: Color(0xff264653),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(7)),
-                    ),
-                  ),
                   SizedBox(
                     height: 30,
                   ),

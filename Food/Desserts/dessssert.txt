@@ -1,7 +1,7 @@
 Waffles			220
 pancake			200
 Dark Choco Sandwich	150
-Gulab Jamun		200
+Gulab Jamun		300
 Mango Kulfi		150
 kesar kheer		200			
 sizzling Brownie		180
