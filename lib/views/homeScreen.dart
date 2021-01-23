@@ -15,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool signedIn = false;
 
   signOut() async {
-    AuthMethods _auth=new AuthMethods();
+    AuthMethods _auth = new AuthMethods();
     _auth.signOut();
     setState(() {
       signedIn = false;
@@ -36,7 +36,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 // crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('images/BasilHutLogo.png'),
+                  Image.asset(
+                    'images/BasilHutLogo.png',
+                    width: double.infinity,
+                  ),
                   SizedBox(
                     height: 45,
                   ),
@@ -92,8 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             signedIn = true;
                             signOut();
                           });
-                        }
-                        else{
+                        } else {
                           print("No user signed in");
                         }
                       },
