@@ -281,6 +281,12 @@ class MenuList {
                   category: menuCategory),
               SizedBox(height: 10),
               MenuItemCard(
+                  imageName: "Masala Chai.jpg",
+                  dishName: "Masala Chai",
+                  price: 100,
+                  category: menuCategory),
+              SizedBox(height: 10),
+              MenuItemCard(
                   imageName: "Caramel Hazelnut.jpg",
                   dishName: "Caramel Hazelnut",
                   price: 280,
