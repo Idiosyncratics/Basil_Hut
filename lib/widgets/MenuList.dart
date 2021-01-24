@@ -490,8 +490,8 @@ class MenuList {
                 category: menuCategory),
             SizedBox(height: 10),
             MenuItemCard(
-                imageName: "Miv Veg.jpg",
-                dishName: "Miv Veg",
+                imageName: "Mix Veg.jpg",
+                dishName: "Mix Veg",
                 price: 250,
                 category: menuCategory),
             SizedBox(height: 10),
