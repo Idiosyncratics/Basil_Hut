@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import './signIn.dart';
-import 'dart:io'; //For file IO
 import 'package:permission_handler/permission_handler.dart'; //For permissions (Add in AndroidManifest.xml)
 import 'package:file_picker/file_picker.dart';
 

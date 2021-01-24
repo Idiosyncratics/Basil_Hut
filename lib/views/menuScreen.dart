@@ -1,17 +1,11 @@
 import 'dart:collection';
-import 'dart:ffi';
-
 import 'package:basil_hut/backend/auth.dart';
-import 'package:basil_hut/backend/bhUser.dart';
-import 'package:basil_hut/main.dart';
 import 'package:basil_hut/widgets/MenuList.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:basil_hut/widgets/widget.dart';
-import 'package:basil_hut/widgets/MenuItemCard.dart';
 import 'package:basil_hut/views/homeScreen.dart';
 import 'package:basil_hut/backend/firestore.dart';
-import 'package:basil_hut/backend/auth.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:basil_hut/widgets/global.dart' as globals;
 import 'package:basil_hut/views/paymentScreen.dart';

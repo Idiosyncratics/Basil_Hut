@@ -10,15 +10,15 @@ class PaymentScreen extends StatelessWidget {
   
 
   TextEditingController upiController = TextEditingController();
-  TextEditingController referrelController = TextEditingController();
+  TextEditingController upiReferralController = TextEditingController();
 
-  TextEditingController mobileNoController = TextEditingController();
+  TextEditingController walletMobileNoController = TextEditingController();
   TextEditingController walletNameController = TextEditingController();
+  TextEditingController walletReferralController = TextEditingController();
 
   TextEditingController cardNoController = TextEditingController();
-  TextEditingController expiryController = TextEditingController();
-  TextEditingController cvvController = TextEditingController();
-  TextEditingController cardPinController = TextEditingController();
+  TextEditingController cardExpiryController = TextEditingController();
+  TextEditingController cardCvvController = TextEditingController();
 
   TextEditingController bankNameController = TextEditingController();
   TextEditingController accountNoController = TextEditingController();
@@ -53,12 +53,13 @@ class PaymentScreen extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                Card( //Wallets
+                Card(
+                  color: Colors.grey[100], //Wallets
                   child: Padding(
                     padding: EdgeInsets.only(
                         top: 6.0, left: 6.0, right: 6.0, bottom: 6.0),
                     child: ExpansionTile(
-                      title: Text('Wallets'),
+                      title: Text('Wallets', style: inputTextFieldStyle(),),
                       children: [
                         Form(
                           key: formKeyWallet,
@@ -67,21 +68,18 @@ class PaymentScreen extends StatelessWidget {
                             child: Column(
                               children: [
                                 TextFormField(
-                                  controller: mobileNoController,
-                                  obscureText: true,
-                                  decoration: inputTextFieldDecoration("Moblie No"),
+                                  controller: walletMobileNoController,
+                                  decoration: inputTextFieldDecoration("Mobile No"),
                                   style: inputTextFieldStyle(),
                                 ),
                                 TextFormField(
                                   controller: walletNameController,
-                                  obscureText: true,
                                   decoration:
                                       inputTextFieldDecoration("Wallet Name"),
                                   style: inputTextFieldStyle(),
                                 ),
                                 TextFormField(
-                                  controller: referrelController,
-                                  obscureText: true,
+                                  controller: walletReferralController,
                                   decoration: inputTextFieldDecoration(
                                       "Referral Code (if any)"),
                                   style: inputTextFieldStyle(),
@@ -95,12 +93,13 @@ class PaymentScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Card( //UPI
+                Card(
+                  color: Colors.grey[100], //UPI
                   child: Padding(
                     padding: EdgeInsets.only(
                         top: 6.0, left: 6.0, right: 6.0, bottom: 6.0),
                     child: ExpansionTile(
-                      title: Text('UPI'),
+                      title: Text('UPI', style: inputTextFieldStyle()),
                       children: [
                         Column(
                           children: [
@@ -112,16 +111,14 @@ class PaymentScreen extends StatelessWidget {
                                   children: [
                                     TextFormField(
                                       controller: upiController,
-                                      obscureText: true,
                                       decoration:
                                           inputTextFieldDecoration("UPI ID"),
                                       style: inputTextFieldStyle(),
                                     ),
                                     TextFormField(
-                                      controller: referrelController,
-                                      obscureText: true,
+                                      controller: upiReferralController,
                                       decoration: inputTextFieldDecoration(
-                                          "Referral Code(if any"),
+                                          "Referral Code (if any) "),
                                       style: inputTextFieldStyle(),
                                     ),
                                     SizedBox(height: 20)
@@ -135,12 +132,13 @@ class PaymentScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Card( //Credit/Debit
+                Card(
+                  color: Colors.grey[100],//Credit/Debit
                   child: Padding(
                     padding: EdgeInsets.only(
                         top: 6.0, left: 6.0, right: 6.0, bottom: 6.0),
                     child:
-                        ExpansionTile(title: Text('Credit/Debit Card'), children: [
+                        ExpansionTile(title: Text('Credit/Debit Card', style: inputTextFieldStyle()), children: [
                       Form(
                         key: formKeyCard,
                         child: Container(
@@ -149,19 +147,17 @@ class PaymentScreen extends StatelessWidget {
                             children: [
                               TextFormField(
                                 controller: cardNoController,
-                                obscureText: true,
                                 decoration: inputTextFieldDecoration("Card No"),
                                 style: inputTextFieldStyle(),
                               ),
                               TextFormField(
-                                controller: expiryController,
-                                obscureText: true,
+                                controller: cardExpiryController,
                                 decoration:
-                                    inputTextFieldDecoration("Expiry Date(mm/yy)"),
+                                    inputTextFieldDecoration("Expiry Date (mm/yy)"),
                                 style: inputTextFieldStyle(),
                               ),
                               TextFormField(
-                                controller: cvvController,
+                                controller: cardCvvController,
                                 obscureText: true,
                                 decoration: inputTextFieldDecoration("CVV"),
                                 style: inputTextFieldStyle(),
@@ -174,12 +170,13 @@ class PaymentScreen extends StatelessWidget {
                     ]),
                   ),
                 ),
-                Card( //Net Banking
+                Card(
+                  color: Colors.grey[100],//Net Banking
                   child: Padding(
                     padding: EdgeInsets.only(
                         top: 6.0, left: 6.0, right: 6.0, bottom: 6.0),
                     child: ExpansionTile(
-                      title: Text('Net Banking'),
+                      title: Text('Net Banking', style: inputTextFieldStyle()),
                       children: [
                         Form(
                           key: formKeyNetBanking,
@@ -189,13 +186,11 @@ class PaymentScreen extends StatelessWidget {
                               children: [
                                 TextFormField(
                                   controller: bankNameController,
-                                  obscureText: true,
                                   decoration: inputTextFieldDecoration("Bank Name"),
                                   style: inputTextFieldStyle(),
                                 ),
                                 TextFormField(
                                   controller: accountNoController,
-                                  obscureText: true,
                                   decoration:
                                       inputTextFieldDecoration("Account No"),
                                   style: inputTextFieldStyle(),
@@ -216,11 +211,12 @@ class PaymentScreen extends StatelessWidget {
                   ),
                 ),
                 Card(
+                  color: Colors.grey[100],
                   child: Padding(
                     padding: EdgeInsets.only(
                         top: 6.0, left: 6.0, right: 6.0, bottom: 6.0),
                     child: ExpansionTile(
-                      title: Text('Cash'),
+                      title: Text('Cash', style: inputTextFieldStyle()),
                       children: [
                         Form(
                           key: formKeyCash,

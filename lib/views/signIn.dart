@@ -1,9 +1,7 @@
 import 'package:basil_hut/backend/auth.dart';
-import 'package:basil_hut/backend/bhUser.dart';
 import 'package:basil_hut/widgets/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:basil_hut/views/menuScreen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import './signUp.dart';
 
 class SignIn extends StatefulWidget {
