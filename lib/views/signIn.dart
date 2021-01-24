@@ -143,11 +143,11 @@ class _SignInState extends State<SignIn> {
                                 //Create an account
                                 Container(
                                   padding: EdgeInsets.symmetric(vertical: 30),
-                                  child: Row(
+                                  child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        "New to Basil Hut? ",
+                                        "New to Basil Hut?",
                                         style: TextStyle(
                                             color: getLogoColor(),
                                             fontSize: 16,
@@ -169,6 +169,9 @@ class _SignInState extends State<SignIn> {
                                               fontFamily: "Poppins",
                                               fontWeight: FontWeight.bold),
                                         ),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
                                       )
                                     ],
                                   ),

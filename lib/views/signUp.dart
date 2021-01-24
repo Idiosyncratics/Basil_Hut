@@ -296,11 +296,11 @@ class _SignUpState extends State<SignUp> {
                           //Already Have An Account
                           Container(
                             padding: EdgeInsets.symmetric(vertical: 30),
-                            child: Row(
+                            child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "Already have an account? ",
+                                  "Already have an account?",
                                   style: TextStyle(
                                       color: getLogoColor(), fontSize: 16, fontFamily: "Poppins"),
                                 ),
@@ -322,6 +322,9 @@ class _SignUpState extends State<SignUp> {
                                 )
                               ],
                             ),
+                          ),
+                          SizedBox(
+                            height: 10,
                           )
                         ],
                       ),

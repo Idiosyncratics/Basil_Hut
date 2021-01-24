@@ -59,13 +59,8 @@ class _MenuScreenState extends State<MenuScreen> {
       context: context,
       builder: (context) => new AlertDialog(
         title: Center(
-            child: Text('You are signed in:', style: userInfoTextStyle())),
-        content: Column(
-          children: [
-            Text('Email: ' + email, style: inputTextFieldStyle()),
-            Text('Sign Out?', style: userInfoTextStyle())
-          ],
-        ),
+            child: Text('Signed in as: '+email, style: userInfoTextStyle())),
+        content: Text('Sign Out?', style: inputTextFieldStyle()),
         actions: <Widget>[
           new FlatButton(
             onPressed: () => Navigator.of(context).pop(false),
@@ -151,11 +146,13 @@ class _MenuScreenState extends State<MenuScreen> {
               SizedBox(
                 height: 10,
               ),
+              //Arrow
               Container(
                 child: arrow,
                 width: 22,
                 padding: EdgeInsets.only(bottom: 8),
               ),
+              //Qty Text
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -175,6 +172,7 @@ class _MenuScreenState extends State<MenuScreen> {
                               fontWeight: FontWeight.w500)),
                     ],
                   ),
+                  //Total Text
                   Row(
                     children: [
                       Text("Total: ",
@@ -196,6 +194,7 @@ class _MenuScreenState extends State<MenuScreen> {
               SizedBox(
                 height: 20,
               ),
+              //Cart Text
               Text(
                 'Cart',
                 style: TextStyle(
@@ -207,6 +206,7 @@ class _MenuScreenState extends State<MenuScreen> {
               SizedBox(
                 height: 5,
               ),
+              //Order Summary Text
               Text(
                 "Order Summary",
                 style: TextStyle(
@@ -215,13 +215,15 @@ class _MenuScreenState extends State<MenuScreen> {
               SizedBox(
                 height: 10,
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
+              Expanded(
                 child: Container(
-                  height: MediaQuery.of(context).size.height-490,
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: getCart(),
+                  margin: EdgeInsets.only(bottom: 20),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 30),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: getCart(),
+                      ),
                     ),
                   ),
                 ),
@@ -248,7 +250,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: 20,
               )
             ],
           ),
@@ -269,7 +271,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 child: SafeArea(
                   child: Container(
                     //Top Container
-                    width: double.infinity,
+                    width: MediaQuery.of(context).size.width,
                     height: double.infinity,
                     padding: EdgeInsets.fromLTRB(15, 5, 15, 0),
                     child: Column(
@@ -303,37 +305,41 @@ class _MenuScreenState extends State<MenuScreen> {
                             ),
                           ],
                         ),
-                        Row(
-                          children: [
-                            Text("<  ",
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    color: Colors.white,
-                                    fontFamily: "Poppins")),
-                            Container(
-                              width: MediaQuery.of(context).size.width - 70,
-                              child: SingleChildScrollView(
-                                scrollDirection: Axis.horizontal,
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    getMenuTextTabButton("Appetizers"),
-                                    getMenuTextTabButton("Desserts"),
-                                    getMenuTextTabButton("Drinks"),
-                                    getMenuTextTabButton("Fast Food"),
-                                    getMenuTextTabButton("Meals"),
-                                    getMenuTextTabButton("Soups"),
-                                  ],
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text("<  ",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.white,
+                                      fontFamily: "Poppins")),
+                              Container(
+                                width: MediaQuery.of(context).size.width - 90,
+                                child: SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      getMenuTextTabButton("Appetizers"),
+                                      getMenuTextTabButton("Desserts"),
+                                      getMenuTextTabButton("Drinks"),
+                                      getMenuTextTabButton("Fast Food"),
+                                      getMenuTextTabButton("Meals"),
+                                      getMenuTextTabButton("Soups"),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            Text("  >",
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    color: Colors.white,
-                                    fontFamily: "Poppins"))
-                          ],
+                              Text("  >",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.white,
+                                      fontFamily: "Poppins"))
+                            ],
+                          ),
                         )
                       ],
                     ),

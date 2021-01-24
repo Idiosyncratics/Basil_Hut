@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:basil_hut/widgets/MenuItemCard.dart';
 
-class MenuList{
-
+class MenuList {
   //Returns all the menu items for the given category
   Column getMenuCards(String menuCategory, BuildContext context) {
     switch (menuCategory) {
@@ -82,7 +81,7 @@ class MenuList{
                   dishName: "Thyme Mushroom Soup",
                   price: 150,
                   category: menuCategory),
-              SizedBox(height: MediaQuery.of(context).size.width - 280),
+              getBottomSizedBox(context),
             ],
           );
         }
@@ -162,7 +161,7 @@ class MenuList{
                   dishName: "Waffles",
                   price: 220,
                   category: menuCategory),
-              SizedBox(height: MediaQuery.of(context).size.width - 280),
+              getBottomSizedBox(context),
             ],
           );
         }
@@ -266,7 +265,7 @@ class MenuList{
                 dishName: "Vada Pav",
                 price: 250,
                 category: menuCategory),
-            SizedBox(height: MediaQuery.of(context).size.width - 280),
+            getBottomSizedBox(context),
           ]);
         }
 
@@ -346,203 +345,192 @@ class MenuList{
                   dishName: "Vanilla Frappe",
                   price: 250,
                   category: menuCategory),
-              SizedBox(height: MediaQuery.of(context).size.width - 280),
+              getBottomSizedBox(context),
             ],
           );
         }
 
-      case "Fast Food":{
-        return Column(
-          children: [
-            SizedBox(height: 10),
-            MenuItemCard(
-                imageName: "Burger.jpg",
-                dishName: "Burger",
-                price: 180,
-                category: menuCategory),
-            SizedBox(height: 10),
-            MenuItemCard(
-                imageName: "Diet Coke.jpg",
-                dishName: "Diet Coke",
-                price: 180,
-                category: menuCategory),
-            SizedBox(height: 10),
-            MenuItemCard(
-                imageName: "Donuts.jpg",
-                dishName: "Donuts",
-                price: 150,
-                category: menuCategory),
-            SizedBox(height: 10),
-            MenuItemCard(
-                imageName: "French Fries.jpg",
-                dishName: "French Fries",
-                price: 150,
-                category: menuCategory),
-            SizedBox(height: 10),
-            MenuItemCard(
-                imageName: "ice cream.jpg",
-                dishName: "Ice Cream",
-                price: 150,
-                category: menuCategory),
-            SizedBox(height: 10),
-            MenuItemCard(
-                imageName: "Pizza.jpg",
-                dishName: "Pizza",
-                price: 200,
-                category: menuCategory),
-            SizedBox(height: 10),
-            MenuItemCard(
-                imageName: "popcorn.jpg",
-                dishName: "Popcorn",
-                price: 150,
-                category: menuCategory),
-            SizedBox(height: 10),
-            MenuItemCard(
-                imageName: "Raj Kachori.jpg",
-                dishName: "Raj Kachori",
-                price: 200,
-                category: menuCategory),
-            SizedBox(height: 10),
-            MenuItemCard(
-                imageName: "Samosa.jpg",
-                dishName: "Samosa",
-                price: 100,
-                category: menuCategory),
-            SizedBox(height: 10),
-            MenuItemCard(
-                imageName: "Taco.jpg",
-                dishName: "Taco",
-                price: 150,
-                category: menuCategory),
-            SizedBox(height: 10),
-            MenuItemCard(
-                imageName: "Veg hot dog.jpg",
-                dishName: "Veg Hot Dog",
-                price: 180,
-                category: menuCategory),
-            SizedBox(height: MediaQuery.of(context).size.width - 280),
-          ],
-        );
-      }
-
-      case "Meals":{
-        return Column(
+      case "Fast Food":
+        {
+          return Column(
             children: [
               SizedBox(height: 10),
-
-              MenuItemCard(imageName: "Butter naan.jpg",
-                  dishName: "Butter Naan",
-                  price: 150,
-                  category: menuCategory),
-
-              SizedBox(height: 10),
-
-              MenuItemCard(imageName: "Chapati.jpg",
-                  dishName: "Chapati",
-                  price: 120,
-                  category: menuCategory),
-
-              SizedBox(height: 10),
-
-              MenuItemCard(imageName: "Dal Bati Churma.jpg",
-                  dishName: "Dal Bati Churma",
-                  price: 250,
-                  category: menuCategory),
-
-              SizedBox(height: 10),
-
-              MenuItemCard(imageName: "Dal Makhni.jpg",
-                  dishName: "Dal Makhni",
-                  price: 250,
-                  category: menuCategory),
-
-              SizedBox(height: 10),
-
-              MenuItemCard(imageName: "Garlic naan.jpg",
-                  dishName: "Garlic Naan",
-                  price: 150,
-                  category: menuCategory),
-
-              SizedBox(height: 10),
-
-              MenuItemCard(imageName: "Indian Thali.jpg",
-                  dishName: "Indian Thali",
-                  price: 350,
-                  category: menuCategory),
-
-              SizedBox(height: 10),
-
-              MenuItemCard(imageName: "kaju kofta Curry.jpg",
-                  dishName: "kaju kofta Curry",
-                  price: 250,
-                  category: menuCategory),
-
-              SizedBox(height: 10),
-
-              MenuItemCard(imageName: "Lasagne of roasted chasseur.jpg",
-                  dishName: "Lasagne of roasted chasseur",
-                  price: 370,
-                  category: menuCategory),
-
-              SizedBox(height: 10),
-
-              MenuItemCard(imageName: "Lemon Rice.jpg",
-                  dishName: "Lemon Rice",
-                  price: 250,
-                  category: menuCategory),
-
-              SizedBox(height: 10),
-
-              MenuItemCard(imageName: "Masala Dosa.jpg",
-                  dishName: "Masala Dosa",
-                  price: 250,
-                  category: menuCategory),
-
-              SizedBox(height: 10),
-
-              MenuItemCard(imageName: "Miv Veg.jpg",
-                  dishName: "Miv Veg",
-                  price: 250,
-                  category: menuCategory),
-
-              SizedBox(height: 10),
-
-              MenuItemCard(imageName: "Mix Pulao.jpg",
-                  dishName: "Mix Pulao",
-                  price: 250,
-                  category: menuCategory),
-
-              SizedBox(height: 10),
-
-              MenuItemCard(imageName: "Paneer biryani.jpg",
-                  dishName: "Paneer biryani",
-                  price: 250,
-                  category: menuCategory),
-
-              SizedBox(height: 10),
-
-              MenuItemCard(imageName: "Pasta Bowl.jpg",
-                  dishName: "Pasta Bowl",
-                  price: 250,
-                  category: menuCategory),
-
-              SizedBox(height: 10),
-
-              MenuItemCard(imageName: "Plain rice.jpg",
-                  dishName: "Plain Rice",
+              MenuItemCard(
+                  imageName: "Burger.jpg",
+                  dishName: "Burger",
                   price: 180,
                   category: menuCategory),
-
               SizedBox(height: 10),
-
-              MenuItemCard(imageName: "tomato & Basil.jpg",
-                  dishName: "Tomato & Basil",
-                  price: 250,
+              MenuItemCard(
+                  imageName: "Diet Coke.jpg",
+                  dishName: "Diet Coke",
+                  price: 180,
                   category: menuCategory),
+              SizedBox(height: 10),
+              MenuItemCard(
+                  imageName: "Donuts.jpg",
+                  dishName: "Donuts",
+                  price: 150,
+                  category: menuCategory),
+              SizedBox(height: 10),
+              MenuItemCard(
+                  imageName: "French Fries.jpg",
+                  dishName: "French Fries",
+                  price: 150,
+                  category: menuCategory),
+              SizedBox(height: 10),
+              MenuItemCard(
+                  imageName: "ice cream.jpg",
+                  dishName: "Ice Cream",
+                  price: 150,
+                  category: menuCategory),
+              SizedBox(height: 10),
+              MenuItemCard(
+                  imageName: "Pizza.jpg",
+                  dishName: "Pizza",
+                  price: 200,
+                  category: menuCategory),
+              SizedBox(height: 10),
+              MenuItemCard(
+                  imageName: "popcorn.jpg",
+                  dishName: "Popcorn",
+                  price: 150,
+                  category: menuCategory),
+              SizedBox(height: 10),
+              MenuItemCard(
+                  imageName: "Raj Kachori.jpg",
+                  dishName: "Raj Kachori",
+                  price: 200,
+                  category: menuCategory),
+              SizedBox(height: 10),
+              MenuItemCard(
+                  imageName: "Samosa.jpg",
+                  dishName: "Samosa",
+                  price: 100,
+                  category: menuCategory),
+              SizedBox(height: 10),
+              MenuItemCard(
+                  imageName: "Taco.jpg",
+                  dishName: "Taco",
+                  price: 150,
+                  category: menuCategory),
+              SizedBox(height: 10),
+              MenuItemCard(
+                  imageName: "Veg hot dog.jpg",
+                  dishName: "Veg Hot Dog",
+                  price: 180,
+                  category: menuCategory),
+              getBottomSizedBox(context),
+            ],
+          );
+        }
 
-              SizedBox(height: MediaQuery.of(context).size.width - 280),
-            ]);
-      }
+      case "Meals":
+        {
+          return Column(children: [
+            SizedBox(height: 10),
+            MenuItemCard(
+                imageName: "Butter naan.jpg",
+                dishName: "Butter Naan",
+                price: 150,
+                category: menuCategory),
+            SizedBox(height: 10),
+            MenuItemCard(
+                imageName: "Chapati.jpg",
+                dishName: "Chapati",
+                price: 120,
+                category: menuCategory),
+            SizedBox(height: 10),
+            MenuItemCard(
+                imageName: "Dal Bati Churma.jpg",
+                dishName: "Dal Bati Churma",
+                price: 250,
+                category: menuCategory),
+            SizedBox(height: 10),
+            MenuItemCard(
+                imageName: "Dal Makhni.jpg",
+                dishName: "Dal Makhni",
+                price: 250,
+                category: menuCategory),
+            SizedBox(height: 10),
+            MenuItemCard(
+                imageName: "Garlic naan.jpg",
+                dishName: "Garlic Naan",
+                price: 150,
+                category: menuCategory),
+            SizedBox(height: 10),
+            MenuItemCard(
+                imageName: "Indian Thali.jpg",
+                dishName: "Indian Thali",
+                price: 350,
+                category: menuCategory),
+            SizedBox(height: 10),
+            MenuItemCard(
+                imageName: "kaju kofta Curry.jpg",
+                dishName: "kaju kofta Curry",
+                price: 250,
+                category: menuCategory),
+            SizedBox(height: 10),
+            MenuItemCard(
+                imageName: "Lasagne of roasted chasseur.jpg",
+                dishName: "Lasagne of roasted chasseur",
+                price: 370,
+                category: menuCategory),
+            SizedBox(height: 10),
+            MenuItemCard(
+                imageName: "Lemon Rice.jpg",
+                dishName: "Lemon Rice",
+                price: 250,
+                category: menuCategory),
+            SizedBox(height: 10),
+            MenuItemCard(
+                imageName: "Masala Dosa.jpg",
+                dishName: "Masala Dosa",
+                price: 250,
+                category: menuCategory),
+            SizedBox(height: 10),
+            MenuItemCard(
+                imageName: "Miv Veg.jpg",
+                dishName: "Miv Veg",
+                price: 250,
+                category: menuCategory),
+            SizedBox(height: 10),
+            MenuItemCard(
+                imageName: "Mix Pulao.jpg",
+                dishName: "Mix Pulao",
+                price: 250,
+                category: menuCategory),
+            SizedBox(height: 10),
+            MenuItemCard(
+                imageName: "Paneer biryani.jpg",
+                dishName: "Paneer biryani",
+                price: 250,
+                category: menuCategory),
+            SizedBox(height: 10),
+            MenuItemCard(
+                imageName: "Pasta Bowl.jpg",
+                dishName: "Pasta Bowl",
+                price: 250,
+                category: menuCategory),
+            SizedBox(height: 10),
+            MenuItemCard(
+                imageName: "Plain rice.jpg",
+                dishName: "Plain Rice",
+                price: 180,
+                category: menuCategory),
+            SizedBox(height: 10),
+            MenuItemCard(
+                imageName: "tomato & Basil.jpg",
+                dishName: "Tomato & Basil",
+                price: 250,
+                category: menuCategory),
+            getBottomSizedBox(context)
+          ]);
+        }
     }
+  }
+
+  SizedBox getBottomSizedBox(BuildContext context) {
+    return SizedBox(height: MediaQuery.of(context).size.height - 630);
   }
 }
