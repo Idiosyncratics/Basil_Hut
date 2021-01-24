@@ -126,6 +126,10 @@ class _MenuScreenState extends State<MenuScreen> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: SlidingUpPanel(
+        color: Colors.grey[100],
+        minHeight: 100,
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20), topRight: Radius.circular(20)),
         onPanelClosed: () {
           setState(() {
             arrow = Image.asset('images/arrowsUp.png');
@@ -136,10 +140,6 @@ class _MenuScreenState extends State<MenuScreen> {
             arrow = Image.asset('images/arrowsDown.png');
           });
         },
-        color: Colors.grey[100],
-        minHeight: MediaQuery.of(context).size.height - 650,
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20), topRight: Radius.circular(20)),
         panel: Center(
           child: Column(
             children: [
@@ -348,13 +348,14 @@ class _MenuScreenState extends State<MenuScreen> {
               ),
 
               // Menu Items
-              Container(
-                decoration: getGradient(),
-                height: MediaQuery.of(context).size.height - 180,
-                width: double.infinity,
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: SingleChildScrollView(
-                  child: menuList.getMenuCards(menuCategory, context),
+              Expanded(
+                child: Container(
+                  decoration: getGradient(),
+                  width: double.infinity,
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: SingleChildScrollView(
+                    child: menuList.getMenuCards(menuCategory, context),
+                  ),
                 ),
               )
             ],

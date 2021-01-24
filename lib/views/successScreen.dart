@@ -83,6 +83,9 @@ class SuccessScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(7)),
                     ),
                   ),
+                  SizedBox(
+                    height: 30,
+                  )
                 ],
               ),
             ),

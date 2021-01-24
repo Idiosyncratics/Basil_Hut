@@ -59,94 +59,89 @@ class _HomeScreenState extends State<HomeScreen> {
               body: SafeArea(
                 child: SingleChildScrollView(
                   padding: EdgeInsets.only(top: 50),
-                  child: Center(
-                    child: Column(
-                      // crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'images/BasilHutLogo.png',
-                          width: double.infinity,
-                        ),
-                        SizedBox(
-                          height: 45,
-                        ),
-                        ButtonTheme(
-                          minWidth: 160,
-                          height: 40,
-                          child: RaisedButton(
-                            onPressed: () {
-                              if (FirebaseAuth.instance.currentUser != null) {
-                                //Show signing in as
-                                const oneSec = const Duration(seconds: 1);
-                                _timer = new Timer.periodic(
-                                  oneSec,
-                                  (Timer timer) {
-                                    if (_start == 0) {
-                                      setState(() {
-                                        timer.cancel();
-                                        _start = 10;
-                                        isLoading = false;
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    MenuScreen()));
-                                      });
-                                    } else {
-                                      setState(() {
-                                        isLoading = true;
-                                        _start--;
-                                      });
-                                    }
-                                  },
-                                );
-                              } else {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => SignIn()));
-                              }
-                            },
-                            child: Text(
-                              "Sign In",
-                              style: buttonTextStyle(),
-                            ),
-                            color: Color(0xff264653),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(7)),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        ButtonTheme(
-                          minWidth: 160,
-                          height: 40,
-                          child: RaisedButton(
-                            onPressed: () {
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Image.asset(
+                        'images/BasilHutLogo.png',
+                        width: double.infinity,
+                      ),
+                      SizedBox(
+                        height: 70,
+                      ),
+                      ButtonTheme(
+                        minWidth: 160,
+                        height: 40,
+                        child: RaisedButton(
+                          onPressed: () {
+                            if (FirebaseAuth.instance.currentUser != null) {
+                              //Show signing in as
+                              const oneSec = const Duration(seconds: 1);
+                              _timer = new Timer.periodic(
+                                oneSec,
+                                (Timer timer) {
+                                  if (_start == 0) {
+                                    setState(() {
+                                      timer.cancel();
+                                      _start = 10;
+                                      isLoading = false;
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  MenuScreen()));
+                                    });
+                                  } else {
+                                    setState(() {
+                                      isLoading = true;
+                                      _start--;
+                                    });
+                                  }
+                                },
+                              );
+                            } else {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => SignUp()));
-                            },
-                            child: Text(
-                              "Sign Up",
-                              style: buttonTextStyle(),
-                            ),
-                            color: Color(0xff264653),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(7)),
+                                      builder: (context) => SignIn()));
+                            }
+                          },
+                          child: Text(
+                            "Sign In",
+                            style: buttonTextStyle(),
                           ),
+                          color: Color(0xff264653),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(7)),
                         ),
-                        SizedBox(
-                          height: 30,
+                      ),
+                      SizedBox(
+                        height: 50,
+                      ),
+                      ButtonTheme(
+                        minWidth: 160,
+                        height: 40,
+                        child: RaisedButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SignUp()));
+                          },
+                          child: Text(
+                            "Sign Up",
+                            style: buttonTextStyle(),
+                          ),
+                          color: Color(0xff264653),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(7)),
                         ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                      ],
-                    ),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                    ],
                   ),
                 ),
               ),
