@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:basil_hut/widgets/widget.dart';
 import 'package:basil_hut/views/homeScreen.dart';
 import 'package:basil_hut/backend/firestore.dart';
-import 'package:basil_hut/backend/bhUser.dart';
-
 import 'dart:io';
 
 class PreviewScreen extends StatefulWidget {

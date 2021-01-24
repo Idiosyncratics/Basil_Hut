@@ -1,9 +1,7 @@
 import 'package:basil_hut/backend/auth.dart';
-import 'package:basil_hut/backend/bhUser.dart';
 import 'package:basil_hut/widgets/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:basil_hut/views/menuScreen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import './signUp.dart';
 
 class SignIn extends StatefulWidget {
@@ -18,22 +16,18 @@ class _SignInState extends State<SignIn> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  signInUser() async {
+  signInUser(BuildContext mainContext) async {
     if (formKey.currentState.validate()) {
       setState(() {
         isLoading = true;
       });
       await auth.signInWithEmailAndPassword(
-          emailController.text, passwordController.text).then((res){
+          emailController.text, passwordController.text, mainContext).then((res){
             if(res!=null){
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MenuScreen()));
             }
       });
       //TODO Display SnackBar & Error
-      //Signed In
-      //TODO Redirect to Menu Screen (pushReplacement)
-
-
       setState(() {
         isLoading = false;
       });
@@ -128,7 +122,7 @@ class _SignInState extends State<SignIn> {
                                   height: 40,
                                   child: RaisedButton(
                                     onPressed: () {
-                                      signInUser();
+                                      signInUser(context);
                                     },
                                     child: Text(
                                       "Sign In",
@@ -143,11 +137,11 @@ class _SignInState extends State<SignIn> {
                                 //Create an account
                                 Container(
                                   padding: EdgeInsets.symmetric(vertical: 30),
-                                  child: Row(
+                                  child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        "New to Basil Hut? ",
+                                        "New to Basil Hut?",
                                         style: TextStyle(
                                             color: getLogoColor(),
                                             fontSize: 16,
@@ -169,6 +163,9 @@ class _SignInState extends State<SignIn> {
                                               fontFamily: "Poppins",
                                               fontWeight: FontWeight.bold),
                                         ),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
                                       )
                                     ],
                                   ),

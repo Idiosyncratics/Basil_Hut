@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import './signIn.dart';
-import 'dart:io'; //For file IO
 import 'package:permission_handler/permission_handler.dart'; //For permissions (Add in AndroidManifest.xml)
 import 'package:file_picker/file_picker.dart';
 
@@ -296,11 +295,11 @@ class _SignUpState extends State<SignUp> {
                           //Already Have An Account
                           Container(
                             padding: EdgeInsets.symmetric(vertical: 30),
-                            child: Row(
+                            child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "Already have an account? ",
+                                  "Already have an account?",
                                   style: TextStyle(
                                       color: getLogoColor(), fontSize: 16, fontFamily: "Poppins"),
                                 ),
@@ -322,6 +321,9 @@ class _SignUpState extends State<SignUp> {
                                 )
                               ],
                             ),
+                          ),
+                          SizedBox(
+                            height: 10,
                           )
                         ],
                       ),

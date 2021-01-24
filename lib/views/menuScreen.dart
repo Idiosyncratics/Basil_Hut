@@ -1,17 +1,11 @@
 import 'dart:collection';
-import 'dart:ffi';
-
 import 'package:basil_hut/backend/auth.dart';
-import 'package:basil_hut/backend/bhUser.dart';
-import 'package:basil_hut/main.dart';
 import 'package:basil_hut/widgets/MenuList.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:basil_hut/widgets/widget.dart';
-import 'package:basil_hut/widgets/MenuItemCard.dart';
 import 'package:basil_hut/views/homeScreen.dart';
 import 'package:basil_hut/backend/firestore.dart';
-import 'package:basil_hut/backend/auth.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:basil_hut/widgets/global.dart' as globals;
 import 'package:basil_hut/views/paymentScreen.dart';
@@ -59,13 +53,8 @@ class _MenuScreenState extends State<MenuScreen> {
       context: context,
       builder: (context) => new AlertDialog(
         title: Center(
-            child: Text('You are signed in:', style: userInfoTextStyle())),
-        content: Column(
-          children: [
-            Text('Email: ' + email, style: inputTextFieldStyle()),
-            Text('Sign Out?', style: userInfoTextStyle())
-          ],
-        ),
+            child: Text('Signed in as: '+email, style: userInfoTextStyle())),
+        content: Text('Sign Out?', style: inputTextFieldStyle()),
         actions: <Widget>[
           new FlatButton(
             onPressed: () => Navigator.of(context).pop(false),
@@ -131,6 +120,10 @@ class _MenuScreenState extends State<MenuScreen> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: SlidingUpPanel(
+        color: Colors.grey[100],
+        minHeight: 80,
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20), topRight: Radius.circular(20)),
         onPanelClosed: () {
           setState(() {
             arrow = Image.asset('images/arrowsUp.png');
@@ -141,21 +134,19 @@ class _MenuScreenState extends State<MenuScreen> {
             arrow = Image.asset('images/arrowsDown.png');
           });
         },
-        color: Colors.grey[100],
-        minHeight: MediaQuery.of(context).size.height - 650,
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20), topRight: Radius.circular(20)),
         panel: Center(
           child: Column(
             children: [
               SizedBox(
-                height: 10,
+                height: 7,
               ),
+              //Arrow
               Container(
                 child: arrow,
                 width: 22,
-                padding: EdgeInsets.only(bottom: 8),
+                padding: EdgeInsets.only(bottom: 3),
               ),
+              //Qty Text
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -175,6 +166,7 @@ class _MenuScreenState extends State<MenuScreen> {
                               fontWeight: FontWeight.w500)),
                     ],
                   ),
+                  //Total Text
                   Row(
                     children: [
                       Text("Total: ",
@@ -196,6 +188,7 @@ class _MenuScreenState extends State<MenuScreen> {
               SizedBox(
                 height: 20,
               ),
+              //Cart Text
               Text(
                 'Cart',
                 style: TextStyle(
@@ -207,6 +200,7 @@ class _MenuScreenState extends State<MenuScreen> {
               SizedBox(
                 height: 5,
               ),
+              //Order Summary Text
               Text(
                 "Order Summary",
                 style: TextStyle(
@@ -215,13 +209,15 @@ class _MenuScreenState extends State<MenuScreen> {
               SizedBox(
                 height: 10,
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
+              Expanded(
                 child: Container(
-                  height: MediaQuery.of(context).size.height-490,
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: getCart(),
+                  margin: EdgeInsets.only(bottom: 20),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 30),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: getCart(),
+                      ),
                     ),
                   ),
                 ),
@@ -248,7 +244,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: 20,
               )
             ],
           ),
@@ -260,7 +256,7 @@ class _MenuScreenState extends State<MenuScreen> {
               Container(
                 padding: EdgeInsets.all(0),
                 width: double.infinity,
-                height: 180,
+                height: MediaQuery.of(context).size.height/4,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                       fit: BoxFit.cover,
@@ -269,7 +265,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 child: SafeArea(
                   child: Container(
                     //Top Container
-                    width: double.infinity,
+                    width: MediaQuery.of(context).size.width,
                     height: double.infinity,
                     padding: EdgeInsets.fromLTRB(15, 5, 15, 0),
                     child: Column(
@@ -278,10 +274,15 @@ class _MenuScreenState extends State<MenuScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Image.asset(
-                              'images/back.png',
-                              width: 30,
-                              height: 30,
+                            GestureDetector(
+                              onTap: (){
+                                Navigator.of(context).pop();
+                              },
+                              child: Image.asset(
+                                'images/back.png',
+                                width: 30,
+                                height: 30,
+                              ),
                             ),
                             Text(
                               'Menu',
@@ -303,37 +304,41 @@ class _MenuScreenState extends State<MenuScreen> {
                             ),
                           ],
                         ),
-                        Row(
-                          children: [
-                            Text("<  ",
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    color: Colors.white,
-                                    fontFamily: "Poppins")),
-                            Container(
-                              width: MediaQuery.of(context).size.width - 70,
-                              child: SingleChildScrollView(
-                                scrollDirection: Axis.horizontal,
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    getMenuTextTabButton("Appetizers"),
-                                    getMenuTextTabButton("Desserts"),
-                                    getMenuTextTabButton("Drinks"),
-                                    getMenuTextTabButton("Fast Food"),
-                                    getMenuTextTabButton("Meals"),
-                                    getMenuTextTabButton("Soups"),
-                                  ],
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text("<  ",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.white,
+                                      fontFamily: "Poppins")),
+                              Container(
+                                width: MediaQuery.of(context).size.width - 90,
+                                child: SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      getMenuTextTabButton("Appetizers"),
+                                      getMenuTextTabButton("Desserts"),
+                                      getMenuTextTabButton("Drinks"),
+                                      getMenuTextTabButton("Fast Food"),
+                                      getMenuTextTabButton("Meals"),
+                                      getMenuTextTabButton("Soups"),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            Text("  >",
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    color: Colors.white,
-                                    fontFamily: "Poppins"))
-                          ],
+                              Text("  >",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.white,
+                                      fontFamily: "Poppins"))
+                            ],
+                          ),
                         )
                       ],
                     ),
@@ -342,13 +347,14 @@ class _MenuScreenState extends State<MenuScreen> {
               ),
 
               // Menu Items
-              Container(
-                decoration: getGradient(),
-                height: MediaQuery.of(context).size.height - 180,
-                width: double.infinity,
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: SingleChildScrollView(
-                  child: menuList.getMenuCards(menuCategory, context),
+              Expanded(
+                child: Container(
+                  decoration: getGradient(),
+                  width: double.infinity,
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: SingleChildScrollView(
+                    child: menuList.getMenuCards(menuCategory, context),
+                  ),
                 ),
               )
             ],

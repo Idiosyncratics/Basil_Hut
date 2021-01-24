@@ -14,56 +14,62 @@ class MenuItemCard extends StatefulWidget {
 }
 
 class _MenuItemCardState extends State<MenuItemCard> {
-
-  int count=0;
-  double totalCostOfDish=0.0;
+  int count = 0;
+  double totalCostOfDish = 0.0;
 
   void increaseCount() {
     if (count + 1 > 10) {
       return;
     }
     setState(() {
-      count+=1;
-      totalCostOfDish+=widget.price;
-      print("working add" +count.toString());
+      count += 1;
+      totalCostOfDish += widget.price;
+      print("working add" + count.toString());
     });
-    if(globals.hashMap.containsKey(widget.dishName)){
-      globals.Pair currPair=globals.hashMap[widget.dishName];
-      currPair.quantity+=1;
-      currPair.total+=widget.price;
-    }
-    else{
+    if (globals.hashMap.containsKey(widget.dishName)) {
+      globals.Pair currPair = globals.hashMap[widget.dishName];
+      currPair.quantity += 1;
+      currPair.total += widget.price;
+    } else {
       globals.Pair currPair = globals.Pair();
-      currPair.quantity=1;
-      currPair.total=widget.price+0.0;
+      currPair.quantity = 1;
+      currPair.total = widget.price + 0.0;
       globals.hashMap[widget.dishName] = currPair;
     }
     globals.hashMap.forEach((key, value) {
-      print(key+" : "+value.quantity.toString() +" : "+value.total.toString());
+      print(key +
+          " : " +
+          value.quantity.toString() +
+          " : " +
+          value.total.toString());
     });
     globals.increment(widget.price);
   }
 
   void decreaseCount() {
-    if (count-1 < 0) {
+    if (count - 1 < 0) {
       return;
     }
     setState(() {
-      count-=1;
-      totalCostOfDish-=widget.price;
-      print("working sub" +count.toString());
+      count -= 1;
+      totalCostOfDish -= widget.price;
+      print("working sub" + count.toString());
     });
-    if(globals.hashMap.containsKey(widget.dishName)) {
+    if (globals.hashMap.containsKey(widget.dishName)) {
       globals.Pair currPair = globals.hashMap[widget.dishName];
       currPair.quantity -= 1;
       currPair.total -= widget.price;
-      if(currPair.quantity==0){
-        currPair.total=0;
+      if (currPair.quantity == 0) {
+        currPair.total = 0;
         globals.hashMap.remove(widget.dishName);
       }
     }
     globals.hashMap.forEach((key, value) {
-      print(key+" : "+value.quantity.toString() +" : "+value.total.toString());
+      print(key +
+          " : " +
+          value.quantity.toString() +
+          " : " +
+          value.total.toString());
     });
     globals.decrement(widget.price);
   }
@@ -84,11 +90,10 @@ class _MenuItemCardState extends State<MenuItemCard> {
     }
 
     //Correct Later
-    if(globals.hashMap.containsKey(widget.dishName)){
-      count=globals.hashMap[widget.dishName].quantity;
-    }
-    else{
-      count=0;
+    if (globals.hashMap.containsKey(widget.dishName)) {
+      count = globals.hashMap[widget.dishName].quantity;
+    } else {
+      count = 0;
     }
 
     return Container(
@@ -123,37 +128,40 @@ class _MenuItemCardState extends State<MenuItemCard> {
               ),
             ),
           ),
-          Container(
-            width: 140,
-            height: double.infinity,
-            padding: EdgeInsets.symmetric(vertical: 10),
-            margin: EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Text(
-                    topLine + "\n" + bottomLine,
-                    style: userInfoTextStyle(),
+          Expanded(
+            flex: 4,
+            child: Container(
+              height: double.infinity,
+              padding: EdgeInsets.symmetric(vertical: 10),
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Text(
+                      topLine + "\n" + bottomLine,
+                      style: userInfoTextStyle(),
+                    ),
                   ),
-                ),
-                Text(
-                  widget.category,
-                  style: TextStyle(
-                    color: Color(0xff6F797D),
-                    fontSize: 16,
+                  Text(
+                    widget.category,
+                    style: TextStyle(
+                      color: Color(0xff6F797D),
+                      fontSize: 16,
+                    ),
                   ),
-                ),
-                Text(
-                  "₹ ${widget.price}",
-                  style: inputTextFieldStyle(),
-                ),
-              ],
+                  Text(
+                    "₹ ${widget.price}",
+                    style: inputTextFieldStyle(),
+                  ),
+                ],
+              ),
             ),
           ),
           Expanded(
+            flex: 1,
             child: ClipRRect(
               borderRadius: BorderRadius.only(
                   topRight: Radius.circular(20),
@@ -167,6 +175,7 @@ class _MenuItemCardState extends State<MenuItemCard> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
+                      alignment: Alignment.center,
                       decoration: BoxDecoration(
                           color: Colors.grey[300],
                           borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -174,25 +183,32 @@ class _MenuItemCardState extends State<MenuItemCard> {
                         onTap: () {
                           increaseCount();
                         },
-                        child: Icon(
-                          Icons.add,
-                          size: 30,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 1),
+                          child: Icon(
+                            Icons.add,
+                            size: 30,
+                          ),
                         ),
                       ),
                     ),
                     Container(
+                      alignment: Alignment.center,
                       width: 30,
                       height: 30,
-                      alignment: Alignment.center,
                       decoration: BoxDecoration(
                           color: Colors.grey[300],
                           borderRadius: BorderRadius.all(Radius.circular(10))),
-                      child: Text(
-                        count.toString(),
-                        style: inputTextFieldStyle(),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 1),
+                        child: Text(
+                          count.toString(),
+                          style: inputTextFieldStyle(),
+                        ),
                       ),
                     ),
                     Container(
+                      alignment: Alignment.center,
                       decoration: BoxDecoration(
                           color: Colors.grey[300],
                           borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -200,9 +216,12 @@ class _MenuItemCardState extends State<MenuItemCard> {
                         onTap: () {
                           decreaseCount();
                         },
-                        child: Icon(
-                          Icons.remove,
-                          size: 30,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 1),
+                          child: Icon(
+                            Icons.remove,
+                            size: 30,
+                          ),
                         ),
                       ),
                     ),

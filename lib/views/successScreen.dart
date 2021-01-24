@@ -1,7 +1,5 @@
-import 'package:basil_hut/backend/bhUser.dart';
 import 'package:basil_hut/widgets/widget.dart';
 import 'package:flutter/material.dart';
-import 'package:basil_hut/widgets/widget.dart';
 import 'menuScreen.dart';
 
 class SuccessScreen extends StatelessWidget {
@@ -83,6 +81,9 @@ class SuccessScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(7)),
                     ),
                   ),
+                  SizedBox(
+                    height: 30,
+                  )
                 ],
               ),
             ),
