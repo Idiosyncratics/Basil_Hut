@@ -43,7 +43,7 @@ TextStyle userInfoTextStyle() {
 TextStyle buttonTextStyle() {
   return TextStyle(
       fontSize: 20,
-      color: Color(0xffd8f3dc),
+      color: Colors.white,
       fontFamily: "Poppins",
       fontWeight: FontWeight.w700);
 }

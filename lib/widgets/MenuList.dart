@@ -249,9 +249,9 @@ class MenuList {
                 category: menuCategory),
             SizedBox(height: 10),
             MenuItemCard(
-                imageName: "paneer tikka.jpg",
-                dishName: "Paneer Tikka",
-                price: 330,
+                imageName: "paneer tikka chaat.jpg",
+                dishName: "Paneer Tikka Chaat",
+                price: 300,
                 category: menuCategory),
             SizedBox(height: 10),
             MenuItemCard(
