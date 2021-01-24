@@ -18,22 +18,18 @@ class _SignInState extends State<SignIn> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  signInUser() async {
+  signInUser(BuildContext mainContext) async {
     if (formKey.currentState.validate()) {
       setState(() {
         isLoading = true;
       });
       await auth.signInWithEmailAndPassword(
-          emailController.text, passwordController.text).then((res){
+          emailController.text, passwordController.text, mainContext).then((res){
             if(res!=null){
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MenuScreen()));
             }
       });
       //TODO Display SnackBar & Error
-      //Signed In
-      //TODO Redirect to Menu Screen (pushReplacement)
-
-
       setState(() {
         isLoading = false;
       });
@@ -128,7 +124,7 @@ class _SignInState extends State<SignIn> {
                                   height: 40,
                                   child: RaisedButton(
                                     onPressed: () {
-                                      signInUser();
+                                      signInUser(context);
                                     },
                                     child: Text(
                                       "Sign In",

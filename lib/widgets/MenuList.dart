@@ -531,6 +531,6 @@ class MenuList {
   }
 
   SizedBox getBottomSizedBox(BuildContext context) {
-    return SizedBox(height: MediaQuery.of(context).size.height - 630);
+    return SizedBox(height: 90);
   }
 }

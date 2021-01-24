@@ -123,37 +123,40 @@ class _MenuItemCardState extends State<MenuItemCard> {
               ),
             ),
           ),
-          Container(
-            width: 140,
-            height: double.infinity,
-            padding: EdgeInsets.symmetric(vertical: 10),
-            margin: EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Text(
-                    topLine + "\n" + bottomLine,
-                    style: userInfoTextStyle(),
+          Expanded(
+            flex: 4,
+            child: Container(
+              height: double.infinity,
+              padding: EdgeInsets.symmetric(vertical: 10),
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Text(
+                      topLine + "\n" + bottomLine,
+                      style: userInfoTextStyle(),
+                    ),
                   ),
-                ),
-                Text(
-                  widget.category,
-                  style: TextStyle(
-                    color: Color(0xff6F797D),
-                    fontSize: 16,
+                  Text(
+                    widget.category,
+                    style: TextStyle(
+                      color: Color(0xff6F797D),
+                      fontSize: 16,
+                    ),
                   ),
-                ),
-                Text(
-                  "₹ ${widget.price}",
-                  style: inputTextFieldStyle(),
-                ),
-              ],
+                  Text(
+                    "₹ ${widget.price}",
+                    style: inputTextFieldStyle(),
+                  ),
+                ],
+              ),
             ),
           ),
           Expanded(
+            flex: 1,
             child: ClipRRect(
               borderRadius: BorderRadius.only(
                   topRight: Radius.circular(20),

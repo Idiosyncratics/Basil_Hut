@@ -127,7 +127,7 @@ class _MenuScreenState extends State<MenuScreen> {
       backgroundColor: Colors.transparent,
       body: SlidingUpPanel(
         color: Colors.grey[100],
-        minHeight: 100,
+        minHeight: 80,
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20), topRight: Radius.circular(20)),
         onPanelClosed: () {
@@ -144,13 +144,13 @@ class _MenuScreenState extends State<MenuScreen> {
           child: Column(
             children: [
               SizedBox(
-                height: 10,
+                height: 7,
               ),
               //Arrow
               Container(
                 child: arrow,
                 width: 22,
-                padding: EdgeInsets.only(bottom: 8),
+                padding: EdgeInsets.only(bottom: 3),
               ),
               //Qty Text
               Row(
@@ -262,7 +262,7 @@ class _MenuScreenState extends State<MenuScreen> {
               Container(
                 padding: EdgeInsets.all(0),
                 width: double.infinity,
-                height: 180,
+                height: MediaQuery.of(context).size.height/4,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                       fit: BoxFit.cover,
@@ -280,10 +280,15 @@ class _MenuScreenState extends State<MenuScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Image.asset(
-                              'images/back.png',
-                              width: 30,
-                              height: 30,
+                            GestureDetector(
+                              onTap: (){
+                                Navigator.of(context).pop();
+                              },
+                              child: Image.asset(
+                                'images/back.png',
+                                width: 30,
+                                height: 30,
+                              ),
                             ),
                             Text(
                               'Menu',

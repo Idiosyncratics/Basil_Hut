@@ -39,15 +39,15 @@ class PaymentScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                    height: 300,
-                    width: 400,
+                    height: 150,
+                    width: 200,
                     child: Image.asset('images/BasilHutIcon.png')),
                 Text(
                   "Pay Invoice",
                   style: pageHeadingTextFieldStyle(),
                 ),
                 Text(
-                  "Your total : $total",
+                  "Your total : ₹ $total",
                   style: inputTextFieldStyle(),
                 ),
                 SizedBox(
