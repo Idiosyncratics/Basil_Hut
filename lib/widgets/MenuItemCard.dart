@@ -100,7 +100,7 @@ class _MenuItemCardState extends State<MenuItemCard> {
       //white container
       height: 140,
       width: double.infinity,
-      padding: EdgeInsets.all(0),
+      padding: EdgeInsets.only(top: 0, left: 0, bottom: 0, right: 15),
       alignment: Alignment.centerLeft,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -169,12 +169,14 @@ class _MenuItemCardState extends State<MenuItemCard> {
               child: Container(
                 alignment: Alignment.centerRight,
                 height: double.infinity,
-                padding: EdgeInsets.only(top: 10, bottom: 10, right: 15),
+                padding: EdgeInsets.only(top: 10, bottom: 10,),
                 // color: Colors.teal,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
+                      width: 30,
+                      height: 30,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                           color: Colors.grey[300],
@@ -183,12 +185,9 @@ class _MenuItemCardState extends State<MenuItemCard> {
                         onTap: () {
                           increaseCount();
                         },
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 1),
-                          child: Icon(
-                            Icons.add,
-                            size: 30,
-                          ),
+                        child: Icon(
+                          Icons.add,
+                          size: 25,
                         ),
                       ),
                     ),
@@ -208,6 +207,8 @@ class _MenuItemCardState extends State<MenuItemCard> {
                       ),
                     ),
                     Container(
+                      width: 30,
+                      height: 30,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                           color: Colors.grey[300],
@@ -216,12 +217,9 @@ class _MenuItemCardState extends State<MenuItemCard> {
                         onTap: () {
                           decreaseCount();
                         },
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 1),
-                          child: Icon(
-                            Icons.remove,
-                            size: 30,
-                          ),
+                        child: Icon(
+                          Icons.remove,
+                          size: 25,
                         ),
                       ),
                     ),
