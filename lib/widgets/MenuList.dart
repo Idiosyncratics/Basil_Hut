@@ -509,7 +509,7 @@ class MenuList {
             SizedBox(height: 10),
             MenuItemCard(
                 imageName: "Paneer biryani.jpg",
-                dishName: "Paneer biryani",
+                dishName: "Paneer Biryani",
                 price: 250,
                 category: menuCategory),
             SizedBox(height: 10),
