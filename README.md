@@ -1,7 +1,7 @@
 # Basil_Hut
-Basil Hut - An office cafetaria app - built for HackerEarth StackHack 2.0.
-Based on Theme 2 of the competition i.e. Develop a pseudo full-stack app for Office Cafeteria.
-Created using Flutter and uses Firebase (Authentication, Cloud Firestore & Cloud Storage) as the backend.
+Basil Hut - An office cafetaria app - built for HackerEarth StackHack 2.0. <br>
+Based on Theme 2 of the competition i.e. Develop a pseudo full-stack app for Office Cafeteria. <br>
+Created using Flutter and uses Firebase (Authentication, Cloud Firestore & Cloud Storage) as the backend. <br>
 
 Developed by: <br>
 Team Idiosyncratics <br>
