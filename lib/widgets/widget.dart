@@ -114,3 +114,8 @@ Container showLoadingScreen() {
     ),
   );
 }
+
+// AlertDialog showAlertDialogWithOneOption(String title, String content,
+// String buttonText){
+//   return
+// }

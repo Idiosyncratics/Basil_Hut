@@ -12,20 +12,25 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   AuthMethods auth = new AuthMethods();
   bool isLoading = false;
-  final formKey = GlobalKey<FormState>();
+  final emailFormKey = GlobalKey<FormState>();
+  final passwordFormKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   signInUser(BuildContext mainContext) async {
-    if (formKey.currentState.validate()) {
+    if (emailFormKey.currentState.validate() &&
+        passwordFormKey.currentState.validate()) {
       setState(() {
         isLoading = true;
       });
-      await auth.signInWithEmailAndPassword(
-          emailController.text, passwordController.text, mainContext).then((res){
-            if(res!=null){
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MenuScreen()));
-            }
+      await auth
+          .signInWithEmailAndPassword(
+              emailController.text, passwordController.text, mainContext)
+          .then((res) {
+        if (res != null) {
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => MenuScreen()));
+        }
       });
       //TODO Display SnackBar & Error
       setState(() {
@@ -60,28 +65,38 @@ class _SignInState extends State<SignIn> {
                         ),
                       ),
                       Form(
-                          key: formKey,
+                        key: emailFormKey,
+                        child: Container(
+                          width: MediaQuery.of(context).size.width - 60,
+                          child: Column(
+                            children: [
+                              //Email
+                              TextFormField(
+                                  controller: emailController,
+                                  autovalidateMode:
+                                      AutovalidateMode.onUserInteraction,
+                                  validator: (val) {
+                                    return RegExp(// Escape Character: \
+                                                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                            .hasMatch(val)
+                                        ? null
+                                        : "Please enter a valid email";
+                                  },
+                                  decoration: inputTextFieldDecoration("Email"),
+                                  style: inputTextFieldStyle()),
+                              SizedBox(
+                                height: 30,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Form(
+                          key: passwordFormKey,
                           child: Container(
                             width: MediaQuery.of(context).size.width - 60,
                             child: Column(
                               children: [
-                                //Email
-                                TextFormField(
-                                    controller: emailController,
-                                    validator: (val) {
-                                      return RegExp(// Escape Character: \
-                                                  r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                              .hasMatch(val)
-                                          ? null
-                                          : "Please enter a valid email";
-                                    },
-                                    decoration:
-                                        inputTextFieldDecoration("Email"),
-                                    style: inputTextFieldStyle()),
-                                SizedBox(
-                                  height: 30,
-                                ),
-
                                 //Password
                                 TextFormField(
                                   controller: passwordController,
@@ -101,7 +116,64 @@ class _SignInState extends State<SignIn> {
                                   alignment: Alignment.centerRight,
                                   height: 70,
                                   child: GestureDetector(
-                                    onTap: () {}, //TODO Forgot Password,
+                                    onTap: () async {
+                                      if (emailController.text.isEmpty) {
+                                        showDialog(
+                                          context: context,
+                                          builder: (context) => new AlertDialog(
+                                            title: new Text('Reset Password',
+                                                style: userInfoTextStyle()),
+                                            content: new Text(
+                                                'Enter your registered email ID in the '
+                                                '\'Email\' field and click \'Forgot Password\'',
+                                                style: inputTextFieldStyle()),
+                                            actions: <Widget>[
+                                              new FlatButton(
+                                                onPressed: () =>
+                                                    Navigator.of(context)
+                                                        .pop(false),
+                                                child: new Text('OK'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      } else if (emailFormKey.currentState
+                                          .validate()) {
+                                        setState(() {
+                                          isLoading = true;
+                                        });
+                                        await auth
+                                            .resetPassword(
+                                                emailController.text, context)
+                                            .then((noError) {
+                                          setState(() {
+                                            isLoading = false;
+                                          });
+                                          if(noError==true)
+                                          showDialog(
+                                            context: context,
+                                            builder: (context) =>
+                                                new AlertDialog(
+                                              title: new Text('Reset link sent',
+                                                  style: userInfoTextStyle()),
+                                              content: new Text(
+                                                  'Click on the link sent at ' +
+                                                      emailController.text +
+                                                      ' to reset your password',
+                                                  style: inputTextFieldStyle()),
+                                              actions: <Widget>[
+                                                new FlatButton(
+                                                  onPressed: () =>
+                                                      Navigator.of(context)
+                                                          .pop(false),
+                                                  child: new Text('OK'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        });
+                                      }
+                                    }, //TODO Forgot Password,
                                     child: Text(
                                       "Forgot Password?",
                                       style: TextStyle(
@@ -145,7 +217,7 @@ class _SignInState extends State<SignIn> {
                                         style: TextStyle(
                                             color: getLogoColor(),
                                             fontSize: 16,
-                                        fontFamily: "Poppins"),
+                                            fontFamily: "Poppins"),
                                       ),
                                       GestureDetector(
                                         onTap: () {

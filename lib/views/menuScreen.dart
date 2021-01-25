@@ -54,7 +54,7 @@ class _MenuScreenState extends State<MenuScreen> {
       builder: (context) => new AlertDialog(
         title: Center(
             child: Text('Signed in as: '+email, style: userInfoTextStyle())),
-        content: Text('Sign Out?', style: inputTextFieldStyle()),
+        content: Text('Sign out?', style: inputTextFieldStyle()),
         actions: <Widget>[
           new FlatButton(
             onPressed: () => Navigator.of(context).pop(false),

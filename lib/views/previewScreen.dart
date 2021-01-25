@@ -1,4 +1,5 @@
 import 'package:basil_hut/backend/auth.dart';
+import 'package:basil_hut/main.dart';
 import 'package:basil_hut/views/successScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -23,13 +24,13 @@ class _PreviewScreenState extends State<PreviewScreen> {
   bool isLoading = false;
 
   //For registering user
-  registerUser() async {
+  registerUser(BuildContext mainContext) async {
     setState(() {
       isLoading = true;
     });
     print("Started Process - Sign Up User");
     final String result =
-        await auth.signUpWithEmailAndPassword(widget.email, widget.password);
+        await auth.signUpWithEmailAndPassword(widget.email, widget.password, mainContext);
     if (result == null) {
       print('Sign Up failed');
       setState(() {
@@ -200,7 +201,7 @@ class _PreviewScreenState extends State<PreviewScreen> {
                                 height: 40,
                                 child: RaisedButton(
                                   onPressed: () {
-                                    registerUser();
+                                    registerUser(context);
                                   },
                                   child: Text(
                                     "Submit",
