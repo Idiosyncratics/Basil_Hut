@@ -117,14 +117,16 @@ class _SignInState extends State<SignIn> {
                                   height: 70,
                                   child: GestureDetector(
                                     onTap: () async {
-                                      if (emailController.text.isEmpty) {
+                                      bool valid=emailFormKey.currentState
+                                          .validate();
+                                      if (emailController.text.isEmpty || !valid) {
                                         showDialog(
                                           context: context,
                                           builder: (context) => new AlertDialog(
                                             title: new Text('Reset Password',
                                                 style: userInfoTextStyle()),
                                             content: new Text(
-                                                'Enter your registered email ID in the '
+                                                'Enter your registered/valid email ID in the '
                                                 '\'Email\' field and click \'Forgot Password\'',
                                                 style: inputTextFieldStyle()),
                                             actions: <Widget>[
@@ -137,8 +139,7 @@ class _SignInState extends State<SignIn> {
                                             ],
                                           ),
                                         );
-                                      } else if (emailFormKey.currentState
-                                          .validate()) {
+                                      } else if (valid) {
                                         setState(() {
                                           isLoading = true;
                                         });

@@ -102,7 +102,7 @@ class AuthMethods {
           builder: (context) => new AlertDialog(
             title:
                 new Text('Couldn\'t sign you up', style: userInfoTextStyle()),
-            content: new Text('The account already exists for that email.',
+            content: new Text('An account already exists for that email.',
                 style: inputTextFieldStyle()),
             actions: <Widget>[
               new FlatButton(
