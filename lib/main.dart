@@ -21,3 +21,8 @@ class BasilHut extends StatelessWidget {
     );
   }
 }
+
+/*
+Create APK: flutter build apk --split-per-abi
+Path: *Project Path*\build\app\outputs\flutter-apk\app-armeabi-v7a-release.apk
+ */

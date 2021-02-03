@@ -210,6 +210,7 @@ class _SignInState extends State<SignIn> {
                                 //Create an account
                                 Container(
                                   padding: EdgeInsets.symmetric(vertical: 30),
+
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
