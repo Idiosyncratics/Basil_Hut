@@ -2,6 +2,7 @@ import 'package:basil_hut/backend/auth.dart';
 import 'package:basil_hut/widgets/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:basil_hut/views/menuScreen.dart';
+import 'package:basil_hut/backend/menuBackend.dart';
 import './signUp.dart';
 
 class SignIn extends StatefulWidget {
@@ -28,6 +29,7 @@ class _SignInState extends State<SignIn> {
               emailController.text, passwordController.text, mainContext)
           .then((res) {
         if (res != null) {
+          fetchCartFromFB();
           Navigator.pushReplacement(
               context, MaterialPageRoute(builder: (context) => MenuScreen()));
         }

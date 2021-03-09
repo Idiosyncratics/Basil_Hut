@@ -16,6 +16,8 @@ class MenuItemCard extends StatefulWidget {
 class _MenuItemCardState extends State<MenuItemCard> {
   int count = 0;
   double totalCostOfDish = 0.0;
+  @override
+  bool firstBuild = true;
 
   void increaseCount() {
     if (count + 1 > 10) {
@@ -24,7 +26,7 @@ class _MenuItemCardState extends State<MenuItemCard> {
     setState(() {
       count += 1;
       totalCostOfDish += widget.price;
-      print("working add" + count.toString());
+      print("Item Added");
     });
     if (globals.hashMap.containsKey(widget.dishName)) {
       globals.Pair currPair = globals.hashMap[widget.dishName];
@@ -36,13 +38,6 @@ class _MenuItemCardState extends State<MenuItemCard> {
       currPair.total = widget.price + 0.0;
       globals.hashMap[widget.dishName] = currPair;
     }
-    globals.hashMap.forEach((key, value) {
-      print(key +
-          " : " +
-          value.quantity.toString() +
-          " : " +
-          value.total.toString());
-    });
     globals.increment(widget.price);
   }
 
@@ -53,7 +48,7 @@ class _MenuItemCardState extends State<MenuItemCard> {
     setState(() {
       count -= 1;
       totalCostOfDish -= widget.price;
-      print("working sub" + count.toString());
+      print("Item deleted");
     });
     if (globals.hashMap.containsKey(widget.dishName)) {
       globals.Pair currPair = globals.hashMap[widget.dishName];
@@ -64,15 +59,10 @@ class _MenuItemCardState extends State<MenuItemCard> {
         globals.hashMap.remove(widget.dishName);
       }
     }
-    globals.hashMap.forEach((key, value) {
-      print(key +
-          " : " +
-          value.quantity.toString() +
-          " : " +
-          value.total.toString());
-    });
     globals.decrement(widget.price);
   }
+
+  //___________________________________________build()______________________________________________
 
   Widget build(BuildContext context) {
     String topLine = "";
@@ -89,7 +79,6 @@ class _MenuItemCardState extends State<MenuItemCard> {
       }
     }
 
-    //Correct Later
     if (globals.hashMap.containsKey(widget.dishName)) {
       count = globals.hashMap[widget.dishName].quantity;
     } else {
@@ -122,9 +111,28 @@ class _MenuItemCardState extends State<MenuItemCard> {
                 topLeft: Radius.circular(20),
                 bottomLeft: Radius.circular(20),
               ),
-              child: Image.asset(
-                'Food/${widget.category}/${widget.imageName}',
-                fit: BoxFit.cover,
+              child: Stack(
+                children: [
+                  Positioned.fill(
+                    child: Opacity(
+                        child: Image.asset('images/BasilHutLogo.png'),
+                        opacity: 0.4),
+                  ),
+                  Positioned.fill(
+                    child: Image.network(
+                      widget.imageName,
+                      fit: BoxFit.cover,
+                      filterQuality: FilterQuality.high,
+                      loadingBuilder: (BuildContext context, Widget child,
+                          ImageChunkEvent loadingProgress) {
+                        if (loadingProgress == null) return child;
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      },
+                    ),
+                  )
+                ],
               ),
             ),
           ),
@@ -169,7 +177,10 @@ class _MenuItemCardState extends State<MenuItemCard> {
               child: Container(
                 alignment: Alignment.centerRight,
                 height: double.infinity,
-                padding: EdgeInsets.only(top: 10, bottom: 10,),
+                padding: EdgeInsets.only(
+                  top: 10,
+                  bottom: 10,
+                ),
                 // color: Colors.teal,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

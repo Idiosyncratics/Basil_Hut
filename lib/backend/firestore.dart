@@ -24,6 +24,7 @@ class FirestoreMethods {
       "Mobile No": "91" + mob,
       "Organization Name": orgName,
       "Registration Details": currFirebaseUser.metadata.creationTime,
+      "Cart": List()
     }).then((value) async {
       print("User Data Added to Firestore");
       //access & update count, set Custom ID

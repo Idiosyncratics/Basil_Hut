@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:basil_hut/widgets/widget.dart';
 import 'package:basil_hut/views/homeScreen.dart';
+import 'package:basil_hut/backend/menuBackend.dart';
 
 class AuthMethods {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -14,6 +15,8 @@ class AuthMethods {
       User firebaseUser = result.user;
       print("Sign In Successful");
       return firebaseUser.email;
+
+
     } on FirebaseAuthException catch (e) {
       String error = "";
       if (e.code == 'user-not-found') {

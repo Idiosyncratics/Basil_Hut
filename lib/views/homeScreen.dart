@@ -2,6 +2,8 @@ import 'package:basil_hut/views/menuScreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:basil_hut/widgets/widget.dart';
+import 'package:basil_hut/backend/menuBackend.dart';
+import 'package:basil_hut/widgets/global.dart' as globals;
 import './signUp.dart';
 import './signIn.dart';
 import 'dart:async';
@@ -19,6 +21,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   _HomeScreenState() {
     _start = duration;
+    globals.totalCost = 0.0;
+    globals.itemCount = 0;
+    globals.hashMap = new Map();
   }
 
   @override
@@ -92,6 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   MenuScreen()));
                                     });
                                   } else {
+                                    fetchCartFromFB();
                                     setState(() {
                                       isLoading = true;
                                       _start--;
