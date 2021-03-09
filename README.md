@@ -9,6 +9,7 @@ Suresh Kumar Chaturvedi <br>
 Akshat Joshi <br>
 Shivang Sharma <br>
 Mohit Bansal <br>
+Naveen Soni <br>
 
 <img src="Screenshots/Basil Hut 1.png" alt="Basil Hut 1" width="380" height="816"/> &nbsp; &nbsp; <img src="Screenshots/Basil Hut 2.png" alt="Basil Hut 2" width="380" height="816"/> 
 <img src="Screenshots/Basil Hut 3.png" alt="Basil Hut 3" width="380" height="816"/> &nbsp; &nbsp; <img src="Screenshots/Basil Hut 4.png" alt="Basil Hut 4" width="380" height="816"/>
