@@ -15,5 +15,5 @@ Naveen Soni <br>
 <br>
 
 # Screenshots
-<img src="Screenshots/Basil Hut 1.png" alt="Basil Hut 1" width="250" height="480"/> &nbsp; &nbsp; <img src="Screenshots/Basil Hut 2.png" alt="Basil Hut 2" width="250" height="480"/> <br>
-<img src="Screenshots/Basil Hut 3.png" alt="Basil Hut 3" width="250" height="480"/> &nbsp; &nbsp; <img src="Screenshots/Basil Hut 4.png" alt="Basil Hut 4" width="250" height="480"/>
+<img src="Screenshots/Basil Hut 1.png" alt="Basil Hut 1" width="250" height="500"/> &nbsp; &nbsp; <img src="Screenshots/Basil Hut 2.png" alt="Basil Hut 2" width="250" height="500"/> <br>
+<img src="Screenshots/Basil Hut 3.png" alt="Basil Hut 3" width="250" height="500"/> &nbsp; &nbsp; <img src="Screenshots/Basil Hut 4.png" alt="Basil Hut 4" width="250" height="500"/>
