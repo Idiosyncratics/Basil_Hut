@@ -1,4 +1,4 @@
-<img src="images/BasilHutLogo.png" alt="Basil Hut Logo" width="300"/>
+<center> <img src="images/BasilHutLogo.png" alt="Basil Hut Logo" width="340"/> </center>
 
 # Basil Hut
 Basil Hut - An office cafeteria app - built for HackerEarth StackHack 2.0. <br>
