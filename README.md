@@ -1,4 +1,6 @@
-# Basil_Hut
+<img src="images/BasilHutLogo.png" alt="Basil Hut Logo" width="300"/>
+
+# Basil Hut
 Basil Hut - An office cafeteria app - built for HackerEarth StackHack 2.0. <br>
 Based on Theme 2 of the competition i.e. Develop a pseudo full-stack app for Office Cafeteria. <br>
 Created using Flutter and uses Firebase (Authentication, Cloud Firestore & Cloud Storage) as the backend. <br>
